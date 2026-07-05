@@ -26,16 +26,18 @@ export function CitySummaryBadgeBar({ city }: { city: City }) {
   ];
 
   return (
-    <div className="mt-7 flex flex-wrap gap-2.5" aria-label="핵심 정보 요약">
+    <div className="mt-7 overflow-x-auto rounded-2xl border border-line bg-mutedSurface/80 px-4 py-3" aria-label="핵심 정보 요약">
+      <div className="flex min-w-max items-center divide-x divide-line">
       {badges.map(({ icon: Icon, label }) => (
         <span
           key={label}
-          className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3.5 py-2 text-sm font-semibold text-ink shadow-sm"
+          className="inline-flex items-center gap-2 px-3 text-sm font-semibold text-ink first:pl-0 last:pr-0"
         >
           <Icon className="h-4 w-4 text-accent" aria-hidden="true" />
           {label}
         </span>
       ))}
+      </div>
     </div>
   );
 }

@@ -8,13 +8,13 @@ import type { RentcarOffer } from '@/types/rentcar';
 const platformMap = {
   tripcom: {
     label: '트립닷컴',
-    buttonLabel: '트립닷컴에서 보기',
+    buttonLabel: '예약 조건 확인하기',
     className: 'bg-tripcom hover:bg-tripcom/90',
     mark: 'T'
   },
   klook: {
     label: '클룩',
-    buttonLabel: '클룩에서 보기',
+    buttonLabel: '예약 조건 확인하기',
     className: 'bg-klook hover:bg-klook/90',
     mark: 'K'
   }
@@ -25,16 +25,22 @@ interface RentcarOfferCardProps {
   countrySlug: string;
   citySlug: string;
   compact?: boolean;
+  showLowestBadge?: boolean;
 }
 
 export function RentcarOfferCard({
   offer,
   countrySlug,
   citySlug,
-  compact = false
+  compact = false,
+  showLowestBadge = false
 }: RentcarOfferCardProps) {
   const [isLoading, setIsLoading] = useState(false);
   const platform = platformMap[offer.platform];
+
+  if (offer.category === 'rentcar' && offer.platform === 'tripcom') {
+    return null;
+  }
 
   async function handleBookClick() {
     setIsLoading(true);
@@ -129,11 +135,18 @@ export function RentcarOfferCard({
         </div>
 
         <div className="w-full rounded-2xl bg-mutedSurface p-4 lg:w-64">
-          <p className="text-xs font-bold uppercase tracking-[0.12em] text-subInk">예상 가격</p>
+          <div className="flex items-center justify-between gap-2">
+            <p className="text-xs font-bold uppercase tracking-[0.12em] text-subInk">예상 가격</p>
+            {showLowestBadge && (
+              <span className="rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-extrabold text-emerald-700">
+                최저가
+              </span>
+            )}
+          </div>
           <p className="mt-2 text-2xl font-extrabold tracking-[-0.02em] text-ink tabular-nums">
             {formatKrw(offer.priceKrw)}
           </p>
-          <p className="mt-1 text-xs text-subInk">최종 가격은 제휴 플랫폼에서 확인</p>
+          <p className="mt-1 text-xs text-subInk">보험·취소·보증금은 최종 화면에서 확인</p>
           <button
             type="button"
             onClick={handleBookClick}

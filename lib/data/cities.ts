@@ -26,7 +26,7 @@ export const cities: City[] = [
     freeCancellationNote:
       '무료 취소 가능 상품은 출발 24~48시간 전까지 조건이 붙는 경우가 많습니다. 예약 버튼 이동 후 취소 가능 시점을 확인하세요.',
     vendorComparisonNote:
-      '오사카는 트립닷컴과 클룩 모두 공항 픽업형 상품을 찾기 쉽습니다. 가격만 보지 말고 ETC 카드, 보험 포함, 영업시간을 함께 비교하세요.',
+      '오사카는 간사이공항 인수와 시내 반납 조건이 일정에 큰 영향을 줍니다. 가격만 보지 말고 ETC 카드, 보험 포함, 영업시간을 함께 확인하세요.',
     relatedCitySlugs: ['japan-fukuoka', 'japan-tokyo', 'usa-hawaii'],
     isPublished: true
   },
@@ -55,7 +55,7 @@ export const cities: City[] = [
     freeCancellationNote:
       '무료 취소 상품이라도 현지 업체 규정에 따라 마감 시간이 다를 수 있습니다.',
     vendorComparisonNote:
-      '후쿠오카는 소형차 수요가 많아 성수기에는 가격이 빠르게 오릅니다. 트립닷컴·클룩 모두 조기 예약 기준으로 비교하는 것이 좋습니다.',
+      '후쿠오카는 소형차 수요가 많아 성수기에는 가격이 빠르게 오릅니다. 유후인·벳푸 일정은 조기 예약 기준으로 차량 등급과 취소 조건을 함께 보세요.',
     relatedCitySlugs: ['japan-osaka', 'japan-tokyo', 'vietnam-danang'],
     isPublished: true
   },
@@ -113,7 +113,7 @@ export const cities: City[] = [
     freeCancellationNote:
       '플랫폼 예약 상품은 무료 취소 조건이 있는 경우가 많지만, 현지 업체·요금제별로 차이가 있습니다.',
     vendorComparisonNote:
-      '하와이는 트립닷컴에서 글로벌 렌터카 업체를 비교하고, 클룩에서는 여행 상품과 함께 묶어 보는 방식이 좋습니다.',
+      '하와이는 공항 지점, 숙소 주차비, 추가 운전자 요금이 총비용에 크게 반영됩니다. 차량 가격과 현장 추가 비용을 따로 계산해보세요.',
     relatedCitySlugs: ['usa-guam', 'japan-osaka', 'thailand-bangkok'],
     isPublished: true
   },
@@ -171,7 +171,7 @@ export const cities: City[] = [
     freeCancellationNote:
       '공항 이동·차량 투어 상품은 출발 전 무료 취소 가능 시간이 명확히 표시되는 상품을 우선 보세요.',
     vendorComparisonNote:
-      '다낭은 렌터카 검색보다 클룩의 차량 이동 상품과 트립닷컴의 공항 픽업 상품을 함께 비교하는 방식이 현실적입니다.',
+      '다낭은 직접 운전보다 기사 포함 차량이나 공항 이동 상품이 현실적인 경우가 많습니다. 이동 거리, 대기 시간, 취소 가능 시간을 먼저 확인하세요.',
     relatedCitySlugs: ['thailand-bangkok', 'japan-fukuoka', 'usa-guam'],
     isPublished: true
   },
@@ -200,7 +200,7 @@ export const cities: City[] = [
     freeCancellationNote:
       '여행 일정 변동이 잦다면 무료 취소 가능 상품을 먼저 필터링해서 보는 것이 좋습니다.',
     vendorComparisonNote:
-      '방콕은 트립닷컴 렌터카와 클룩 차량 이동 상품을 함께 비교하면 일정에 맞는 선택이 쉽습니다.',
+      '방콕은 도심 체증이 심해 직접 운전과 기사 포함 차량의 장단점이 분명합니다. 파타야 등 외곽 이동이 있는지에 따라 선택 기준을 달리하세요.',
     relatedCitySlugs: ['vietnam-danang', 'usa-hawaii', 'japan-osaka'],
     isPublished: true
   }

@@ -36,7 +36,7 @@ export function CityFaqSection({ city }: { city: City }) {
       icon: Plane
     },
     {
-      title: '트립닷컴·클룩 비교 팁',
+      title: '예약 화면 확인 팁',
       text: city.vendorComparisonNote,
       icon: Plane
     }
@@ -65,7 +65,7 @@ export function CityFaqSection({ city }: { city: City }) {
         <div className="max-w-2xl">
           <p className="text-sm font-bold text-accent">예약 전 체크</p>
           <h2 className="mt-2 text-2xl font-extrabold tracking-[-0.02em] text-ink">
-            한국인이 꼭 확인해야 할 정보
+            최종 예약 전 꼭 확인해야 할 정보
           </h2>
           <p className="mt-3 text-sm leading-6 text-subInk">
             가격만 보고 예약하면 현장 보험, 보증금, 반납 조건에서 당황할 수 있습니다. 아래 항목을 먼저 확인하세요.

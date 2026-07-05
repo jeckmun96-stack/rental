@@ -14,12 +14,12 @@ export default function RentcarHubPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
       <section className="rounded-[28px] border border-line bg-white p-6 shadow-soft sm:p-10">
-        <p className="text-sm font-bold text-accent">SEO 허브 페이지</p>
+        <p className="text-sm font-bold text-accent">도시별 예약 가이드</p>
         <h1 className="mt-3 text-[32px] font-extrabold leading-tight tracking-[-0.02em] text-ink sm:text-[42px]">
           해외 렌터카 예약 가이드
         </h1>
         <p className="mt-4 max-w-3xl text-base leading-8 text-subInk">
-          여행지마다 운전 방향, 보험 조건, 보증금, 공항 픽업 가능 여부가 다릅니다. 먼저 도시별 가이드를 확인한 뒤 트립닷컴·클룩 제휴 링크에서 최종 조건을 비교하세요.
+          여행지마다 운전 방향, 보험 조건, 보증금, 공항 픽업 가능 여부가 다릅니다. 먼저 도시별 가이드를 확인한 뒤 클룩 최종 예약 화면에서 차량 등급과 포함 조건을 다시 확인하세요.
         </p>
       </section>
 

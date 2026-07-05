@@ -19,7 +19,7 @@ export function Header() {
             예약 전 체크리스트
           </Link>
           <Link href="/compare" className="hover:text-accent">
-            플랫폼 비교
+            이동수단 비교
           </Link>
           <Link href="/faq" className="hover:text-accent">
             FAQ

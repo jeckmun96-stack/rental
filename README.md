@@ -1,6 +1,6 @@
 # 해외렌트랩 MVP
 
-해외렌트랩(Global Rent Lab)은 해외여행을 준비하는 한국인이 도시별 렌터카 예약 조건을 확인하고, 트립닷컴과 클룩 제휴 링크로 이동할 수 있게 만든 SEO형 렌터카 정보 사이트입니다.
+해외렌트랩(Global Rent Lab)은 해외여행을 준비하는 한국인이 도시별 렌터카 예약 조건과 공항픽업·페리·크루즈 이동수단을 확인하고, 제휴 링크로 이동할 수 있게 만든 SEO형 여행 교통 정보 사이트입니다.
 
 이 MVP는 자체 예약·결제 서비스가 아닙니다. 실시간 API 없이 로컬 mock data와 제휴 링크 버튼으로 구성되어 있습니다.
 
@@ -56,7 +56,7 @@ Vercel도 같은 방식으로 Next.js 프로젝트를 빌드합니다.
 lib/data/affiliateLinks.ts
 ```
 
-트립닷컴과 클룩에서 발급받은 실제 링크를 `tripcom`, `klook` 값에 그대로 넣으세요. 제휴 파라미터를 임의로 삭제하거나 바꾸지 않는 것이 중요합니다.
+카테고리별 실제 제휴 링크를 `rentcar`, `airport_transfer`, `ferry`, `cruise` 값에 그대로 넣으세요. 제휴 파라미터를 임의로 삭제하거나 바꾸지 않는 것이 중요합니다.
 
 ## 도시 데이터 수정 위치
 
@@ -117,8 +117,8 @@ SITE_URL=https://rentcar.tipcoupon.com
 {
   "citySlug": "osaka",
   "countrySlug": "japan",
-  "platform": "tripcom",
-  "offerId": "offer-osaka-tripcom-compact"
+  "platform": "klook",
+  "offerId": "offer-osaka-klook-suv"
 }
 ```
 
@@ -126,8 +126,7 @@ SITE_URL=https://rentcar.tipcoupon.com
 
 ## 아직 구현하지 않은 것
 
-- 실시간 Trip.com API 연동
-- 실시간 Klook API 연동
+- 실시간 제휴/가격 API 연동
 - 로그인/회원가입
 - 자체 결제
 - 관리자 페이지
@@ -137,5 +136,5 @@ SITE_URL=https://rentcar.tipcoupon.com
 
 1. `lib/rentcar-providers/types.ts`의 provider 타입을 기준으로 mock/live provider를 나눕니다.
 2. `RENTCAR_DATA_SOURCE=mock|live` 같은 환경변수로 데이터 소스를 전환합니다.
-3. Trip.com, Klook 승인 후 공식 문서 기준으로 서버 전용 API route를 만듭니다.
+3. 제휴사 승인 후 공식 문서 기준으로 서버 전용 API route를 만듭니다.
 4. 기존 `lib/data/affiliateLinks.ts`의 딥링크 구조는 보존하고, API 결과에는 제휴 파라미터가 유지되도록 매핑합니다.

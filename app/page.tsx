@@ -1,6 +1,15 @@
 import Link from 'next/link';
-import { ArrowRight, BadgeCheck, CheckCircle2, ClipboardCheck, Plane, ShieldCheck } from 'lucide-react';
+import {
+  ArrowRight,
+  BadgeCheck,
+  CheckCircle2,
+  ClipboardCheck,
+  ExternalLink,
+  Plane,
+  ShieldCheck
+} from 'lucide-react';
 import { CityCard } from '@/components/rentcar/CityCard';
+import { AFFILIATE_LINKS, transportCategoryLinks } from '@/lib/data/affiliateLinks';
 import { getPublishedCities } from '@/lib/data/cities';
 
 export default function HomePage() {
@@ -62,11 +71,45 @@ export default function HomePage() {
         </div>
 
         <div className="mt-10 grid gap-3 sm:grid-cols-3">
-          {['도시별 SEO 가이드', '트립닷컴·클룩 비교', '제휴 클릭 추적'].map((item) => (
+          {['도시별 예약 조건', '클룩 렌터카 연결', '제휴 클릭 추적'].map((item) => (
             <div key={item} className="flex items-center gap-2 rounded-2xl bg-mutedSurface px-4 py-3 text-sm font-semibold text-ink">
               <CheckCircle2 className="h-4 w-4 text-accent" />
               {item}
             </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-14">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <p className="text-sm font-bold text-accent">여행 교통 예약</p>
+            <h2 className="mt-2 text-2xl font-extrabold tracking-[-0.02em] text-ink">
+              일정에 맞는 이동수단 먼저 고르기
+            </h2>
+          </div>
+          <Link href="/compare" className="hidden text-sm font-bold text-accent sm:inline-flex">
+            선택 기준 보기
+          </Link>
+        </div>
+        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {transportCategoryLinks.map((item) => (
+            <article key={item.category} className="rounded-2xl border border-line bg-white p-5 shadow-sm">
+              <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-subInk">
+                {item.platform === 'klook' ? 'Klook' : 'Trip.com'}
+              </p>
+              <h3 className="mt-3 text-lg font-extrabold tracking-[-0.02em] text-ink">{item.title}</h3>
+              <p className="mt-2 min-h-24 text-sm leading-6 text-subInk">{item.description}</p>
+              <a
+                href={AFFILIATE_LINKS[item.category]}
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-ink px-4 py-3 text-sm font-bold text-white transition hover:bg-accent"
+              >
+                {item.ctaLabel}
+                <ExternalLink className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </article>
           ))}
         </div>
       </section>
@@ -119,16 +162,16 @@ export default function HomePage() {
       <section className="mt-14 rounded-[28px] border border-line bg-white p-6 shadow-sm sm:p-8">
         <div className="grid gap-6 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <div>
-            <p className="text-sm font-bold text-accent">플랫폼 비교</p>
+            <p className="text-sm font-bold text-accent">예약 판단 기준</p>
             <h2 className="mt-2 text-2xl font-extrabold tracking-[-0.02em] text-ink">
-              트립닷컴과 클룩, 렌터카 예약 전 이렇게 비교하세요
+              렌터카 예약 전 이렇게 확인하세요
             </h2>
             <p className="mt-3 text-sm leading-6 text-subInk">
-              한국어 사용 편의성, 쿠폰·프로모션, 렌터카 접근성, 여행 상품 연계, 공항픽업 여부를 한 번에 확인하세요.
+              같은 차량처럼 보여도 보험, 보증금, 취소 가능 시간, 공항 지점 영업시간에 따라 실제 체감 비용이 달라질 수 있습니다.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
-            {['한국어 사용 편의성', '쿠폰/프로모션 확인', '렌터카 접근성', '여행 상품과 함께 예약', '공항픽업 연계'].map((item) => (
+            {['국제운전면허증', '보험/면책금', '보증금 결제수단', '무료 취소 마감', '공항 픽업 위치'].map((item) => (
               <div key={item} className="flex items-center gap-2 rounded-2xl bg-mutedSurface px-4 py-3 text-sm font-semibold text-ink">
                 <ClipboardCheck className="h-4 w-4 text-accent" />
                 {item}
@@ -138,7 +181,7 @@ export default function HomePage() {
         </div>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <Link href="/compare" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-accent">
-            플랫폼 비교 보기
+            이동수단 선택 기준 보기
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

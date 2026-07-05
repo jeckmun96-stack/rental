@@ -8,15 +8,27 @@ interface RentcarOfferListProps {
 }
 
 export function RentcarOfferList({ offers, countrySlug, citySlug }: RentcarOfferListProps) {
+  const lowestOfferIds = new Set(
+    Object.values(
+      offers.reduce<Record<string, RentcarOffer[]>>((groups, offer) => {
+        const key = `${offer.cityId}:${offer.vehicleClass}`;
+        groups[key] = [...(groups[key] ?? []), offer];
+        return groups;
+      }, {})
+    )
+      .filter((group) => group.length > 1)
+      .map((group) => group.reduce((lowest, offer) => (offer.priceKrw < lowest.priceKrw ? offer : lowest)).id)
+  );
+
   return (
     <section id="offers" className="mt-12">
       <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
         <div>
-          <p className="text-sm font-bold text-accent">렌터카 비교</p>
-          <h2 className="mt-2 text-2xl font-extrabold tracking-[-0.02em] text-ink">예약 가능한 상품 예시</h2>
+          <p className="text-sm font-bold text-accent">예약 조건 확인</p>
+          <h2 className="mt-2 text-2xl font-extrabold tracking-[-0.02em] text-ink">도시별 렌터카 상품으로 이동하기</h2>
         </div>
         <p className="max-w-xl text-sm leading-6 text-subInk">
-          MVP 단계에서는 mock 데이터로 구성되어 있습니다. 실제 운영 시 트립닷컴·클룩 제휴 링크 또는 API 데이터로 교체하면 됩니다.
+          표시 가격은 참고용입니다. 실제 결제 전에는 클룩 최종 화면에서 차량 등급, 보험, 보증금, 무료 취소 조건을 다시 확인하세요.
         </p>
       </div>
       <div className="mt-5 grid gap-4">
@@ -26,6 +38,7 @@ export function RentcarOfferList({ offers, countrySlug, citySlug }: RentcarOffer
             offer={offer}
             countrySlug={countrySlug}
             citySlug={citySlug}
+            showLowestBadge={lowestOfferIds.has(offer.id)}
           />
         ))}
       </div>
