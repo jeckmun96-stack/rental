@@ -55,6 +55,9 @@ export function Header({ locale = 'ko' }: HeaderProps) {
             <Link href="/en/flights" className="hover:text-accent">
               Flights
             </Link>
+            <Link href="/en/faq" className="hover:text-accent">
+              FAQ
+            </Link>
           </nav>
         )}
         <div className="flex items-center gap-2">
