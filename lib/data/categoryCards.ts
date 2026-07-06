@@ -15,7 +15,7 @@ export interface CategorySubItem {
 }
 
 export interface MainCategoryCard {
-  id: 'rentcar' | 'transport' | 'hotel' | 'esim' | 'activity';
+  id: 'rentcar' | 'transport' | 'hotel' | 'esim' | 'activity' | 'attraction';
   title: string;
   description: string;
   imageUrl: string;
@@ -120,20 +120,28 @@ export const mainCategoryCards: MainCategoryCard[] = [
     description: '해외여행 데이터 유심·이심을 미리 준비하세요. 공항 수령 없이 바로 개통할 수 있는 상품도 있습니다.',
     imageUrl: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=1200&q=80',
     imageAlt: '스마트폰 유심을 준비하는 여행자',
-    // TODO: 클룩 어필리에이트 딥링크 생성 후 교체 필요 (지금은 임시 일반 링크)
-    href: 'https://www.klook.com/ko/simcard/',
+    href: 'https://affiliate.klook.com/redirect?aid=126314&aff_adid=1329465&k_site=https%3A%2F%2Fwww.klook.com%2Fko%2Fwifi-sim-card%2F%3Fspm%3DHome_AllNodePopup.Home.BusinessEntry%3A%3A%3A%3ACategory_LIST%26clickId%3D1e8c7c19f3',
     ctaLabel: '이심·유심 보기',
     badges: [{ key: 'klook', label: 'KLOOK' }]
   },
   {
     id: 'activity',
-    title: '투어·입장권',
-    description: '테마파크 입장권, 현지 투어, 액티비티까지 클룩에서 한 번에 예약하세요.',
+    title: '투어·액티비티',
+    description: '현지 투어, 체험, 액티비티 상품을 클룩에서 한 번에 예약하세요.',
     imageUrl: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80',
-    imageAlt: '입장권을 들고 있는 여행자',
-    // TODO: 클룩 어필리에이트 딥링크 생성 후 교체 필요 (지금은 임시 일반 링크)
-    href: 'https://www.klook.com/ko/',
-    ctaLabel: '투어·입장권 보기',
+    imageAlt: '투어를 즐기는 여행자',
+    href: 'https://affiliate.klook.com/redirect?aid=126314&aff_adid=1329465&k_site=https%3A%2F%2Fwww.klook.com%2Fko%2Fexperiences%2F%3Fspm%3DHome.TopSearchBar_MainNode_LIST%26clickId%3Df26bda2bd7',
+    ctaLabel: '투어·액티비티 보기',
+    badges: [{ key: 'klook', label: 'KLOOK' }]
+  },
+  {
+    id: 'attraction',
+    title: '입장권(어트랙션)',
+    description: '테마파크, 전시, 랜드마크 입장권을 클룩에서 미리 예약하고 줄서지 않고 입장하세요.',
+    imageUrl: 'https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: '테마파크 입장권을 들고 있는 여행자',
+    href: 'https://affiliate.klook.com/redirect?aid=126314&aff_adid=1329465&k_site=https%3A%2F%2Fwww.klook.com%2Fko%2Fattractions%2F%3Fspm%3DHome.TopSearchBar_MainNode_LIST%26clickId%3D96c6f8dee8',
+    ctaLabel: '입장권 보기',
     badges: [{ key: 'klook', label: 'KLOOK' }]
   }
 ];
