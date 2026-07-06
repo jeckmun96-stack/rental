@@ -21,6 +21,13 @@ export interface Dictionary {
   categories: Record<CategoryId, CategoryCopy>;
   footerText: string;
   comingSoonNote: string;
+  citySectionEyebrow: string;
+  citySectionHeading: string;
+  featuredCityNames: string[];
+  checklistEyebrow: string;
+  checklistHeading: string;
+  checklistLead: string;
+  checklistItems: string[];
 }
 
 type DictionaryLocale = Locale | 'ko';
@@ -70,7 +77,15 @@ export const dictionaries: Record<DictionaryLocale, Dictionary> = {
     },
     footerText:
       '느긋해 보여도 확인할 건 다 확인하는 여행늘보예요. 본 사이트는 제휴 마케팅 기반의 정보 제공 사이트입니다. 가격, 보험 조건, 취소 규정은 제휴 플랫폼과 현지 업체 사정에 따라 달라질 수 있으므로 예약 전 최종 화면을 확인하세요.',
-    comingSoonNote: ''
+    comingSoonNote: '',
+    citySectionEyebrow: '인기 도시',
+    citySectionHeading: '지금 확인할 수 있는 인기 도시',
+    featuredCityNames: ['오사카', '후쿠오카', '도쿄', '삿포로', '오키나와', '나고야', '교토', '하와이'],
+    checklistEyebrow: '예약 판단 기준',
+    checklistHeading: '렌터카 예약 전 이렇게 확인하세요',
+    checklistLead:
+      '같은 차량처럼 보여도 보험, 보증금, 취소 가능 시간, 공항 지점 영업시간에 따라 실제 체감 비용이 달라질 수 있습니다.',
+    checklistItems: ['국제운전면허증', '보험/면책금', '보증금 결제수단', '무료 취소 마감', '공항 픽업 위치']
   },
   en: {
     brandName: 'Travel Sloth',
@@ -117,7 +132,21 @@ export const dictionaries: Record<DictionaryLocale, Dictionary> = {
     footerText:
       'Travel Sloth — slow-looking, but nothing gets missed. This site runs on affiliate marketing; prices, insurance terms, and cancellation policies can vary by platform and local vendor, so always check the final booking screen.',
     comingSoonNote:
-      'City-by-city guides are being translated into English. In the meantime, you can browse and book directly through the categories above.'
+      'City-by-city guides are being translated into English. In the meantime, you can browse and book directly through the categories above.',
+    citySectionEyebrow: 'Popular cities',
+    citySectionHeading: 'Popular destinations right now',
+    featuredCityNames: ['Osaka', 'Fukuoka', 'Tokyo', 'Sapporo', 'Okinawa', 'Nagoya', 'Kyoto', 'Hawaii'],
+    checklistEyebrow: 'What to check',
+    checklistHeading: 'Check these before you book a rental car',
+    checklistLead:
+      'Even the same car can end up costing very differently depending on insurance, deposit, the free-cancellation window, and airport counter hours.',
+    checklistItems: [
+      'International driving permit',
+      'Insurance & excess',
+      'Deposit payment method',
+      'Free-cancellation deadline',
+      'Airport pickup location'
+    ]
   },
   ja: {
     brandName: 'Travel Sloth（トラベルナマケモノ）',
@@ -164,7 +193,15 @@ export const dictionaries: Record<DictionaryLocale, Dictionary> = {
     footerText:
       'Travel Sloth（トラベルナマケモノ）— のんびり見えても、確認することはきちんと確認します。本サイトはアフィリエイトマーケティングによる情報提供サイトです。価格、保険条件、キャンセル規定はプラットフォームや現地業者により異なる場合があるため、予約前に最終画面をご確認ください。',
     comingSoonNote:
-      '都市別ガイドは順次日本語に翻訳予定です。それまでは上記カテゴリーから直接ご予約いただけます。'
+      '都市別ガイドは順次日本語に翻訳予定です。それまでは上記カテゴリーから直接ご予約いただけます。',
+    citySectionEyebrow: '人気都市',
+    citySectionHeading: '今すぐ見られる人気都市',
+    featuredCityNames: ['大阪', '福岡', '東京', '札幌', '沖縄', '名古屋', '京都', 'ハワイ'],
+    checklistEyebrow: '予約前の確認事項',
+    checklistHeading: 'レンタカー予約前にここを確認',
+    checklistLead:
+      '同じ車種に見えても、保険、保証金、無料キャンセル期限、空港カウンターの営業時間によって実際の負担額は変わります。',
+    checklistItems: ['国際運転免許証', '保険・免責金', '保証金の支払い方法', '無料キャンセル期限', '空港ピックアップ場所']
   },
   zh: {
     brandName: 'Travel Sloth 旅行树懒',
@@ -209,7 +246,14 @@ export const dictionaries: Record<DictionaryLocale, Dictionary> = {
     },
     footerText:
       'Travel Sloth 旅行树懒 — 看起来慢悠悠，但该确认的都会确认。本网站为联盟营销信息网站，价格、保险条款及取消政策可能因平台和当地商家而异，请以预订前最终页面为准。',
-    comingSoonNote: '各城市详细指南正在陆续翻译为中文，目前可直接通过上方分类浏览和预订。'
+    comingSoonNote: '各城市详细指南正在陆续翻译为中文，目前可直接通过上方分类浏览和预订。',
+    citySectionEyebrow: '热门城市',
+    citySectionHeading: '现在可以查看的热门城市',
+    featuredCityNames: ['大阪', '福冈', '东京', '札幌', '冲绳', '名古屋', '京都', '夏威夷'],
+    checklistEyebrow: '预订判断标准',
+    checklistHeading: '租车前请确认这些事项',
+    checklistLead: '即使是同款车型，保险、押金、免费取消时限和机场柜台营业时间也会让实际费用有所不同。',
+    checklistItems: ['国际驾驶证', '保险与免赔额', '押金支付方式', '免费取消截止时间', '机场取车地点']
   },
   nl: {
     brandName: 'Travel Sloth',
@@ -259,7 +303,21 @@ export const dictionaries: Record<DictionaryLocale, Dictionary> = {
     footerText:
       "Travel Sloth — lijkt traag, maar niets ontgaat ons. Deze site werkt met affiliate marketing: prijzen, verzekeringsvoorwaarden en annuleringsbeleid kunnen verschillen per platform en lokale aanbieder, controleer daarom altijd het laatste boekingsscherm.",
     comingSoonNote:
-      'De stadsgidsen worden momenteel vertaald naar het Nederlands. Je kunt intussen direct boeken via de categorieën hierboven.'
+      'De stadsgidsen worden momenteel vertaald naar het Nederlands. Je kunt intussen direct boeken via de categorieën hierboven.',
+    citySectionEyebrow: 'Populaire steden',
+    citySectionHeading: 'Populaire bestemmingen op dit moment',
+    featuredCityNames: ['Osaka', 'Fukuoka', 'Tokio', 'Sapporo', 'Okinawa', 'Nagoya', 'Kyoto', 'Hawaï'],
+    checklistEyebrow: 'Waar op te letten',
+    checklistHeading: "Check dit voor je een huurauto boekt",
+    checklistLead:
+      "Zelfs dezelfde auto kan sterk verschillen in prijs, afhankelijk van verzekering, borg, de deadline voor gratis annuleren en de openingstijden van de luchthavenbalie.",
+    checklistItems: [
+      'Internationaal rijbewijs',
+      'Verzekering & eigen risico',
+      'Betaalmethode borg',
+      'Deadline gratis annuleren',
+      'Ophaallocatie luchthaven'
+    ]
   },
   de: {
     brandName: 'Travel Sloth',
@@ -309,7 +367,21 @@ export const dictionaries: Record<DictionaryLocale, Dictionary> = {
     footerText:
       'Travel Sloth – wirkt gemütlich, lässt aber nichts aus. Diese Seite arbeitet mit Affiliate-Marketing: Preise, Versicherungsbedingungen und Stornoregeln können je nach Plattform und lokalem Anbieter variieren. Bitte prüfe daher immer den finalen Buchungsbildschirm.',
     comingSoonNote:
-      'Die Städteguides werden nach und nach ins Deutsche übersetzt. Bis dahin kannst du direkt über die Kategorien oben buchen.'
+      'Die Städteguides werden nach und nach ins Deutsche übersetzt. Bis dahin kannst du direkt über die Kategorien oben buchen.',
+    citySectionEyebrow: 'Beliebte Städte',
+    citySectionHeading: 'Gerade beliebte Reiseziele',
+    featuredCityNames: ['Osaka', 'Fukuoka', 'Tokio', 'Sapporo', 'Okinawa', 'Nagoya', 'Kyōto', 'Hawaii'],
+    checklistEyebrow: 'Worauf achten',
+    checklistHeading: 'Das solltest du vor der Mietwagenbuchung prüfen',
+    checklistLead:
+      'Selbst beim gleichen Auto können Versicherung, Kaution, Frist für kostenlose Stornierung und Öffnungszeiten am Flughafenschalter die tatsächlichen Kosten stark verändern.',
+    checklistItems: [
+      'Internationaler Führerschein',
+      'Versicherung & Selbstbeteiligung',
+      'Zahlungsmethode für die Kaution',
+      'Frist für kostenlose Stornierung',
+      'Abholort am Flughafen'
+    ]
   }
 };
 

@@ -80,11 +80,46 @@ export default function LocaleHomePage({ params }: LocalePageProps) {
         </div>
       </section>
 
+      <section className="mt-10">
+        <p className="text-sm font-bold text-accent">{dict.citySectionEyebrow}</p>
+        <h2 className="mt-2 text-2xl font-extrabold text-ink">{dict.citySectionHeading}</h2>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {dict.featuredCityNames.map((name) => (
+            <a
+              key={name}
+              href={localizeAffiliateUrl(dict.ctaPrimaryHref, locale)}
+              target="_blank"
+              rel="noopener noreferrer sponsored"
+              className="rounded-full border border-line bg-mutedSurface px-3.5 py-2 text-sm font-semibold text-subInk transition hover:border-accent hover:text-accent"
+            >
+              {name}
+            </a>
+          ))}
+        </div>
+      </section>
+
       {dict.comingSoonNote && (
-        <section className="mt-10 rounded-[28px] border border-line bg-mutedSurface p-6 text-sm leading-6 text-subInk sm:p-8">
+        <section className="mt-6 rounded-[28px] border border-line bg-mutedSurface p-6 text-sm leading-6 text-subInk sm:p-8">
           {dict.comingSoonNote}
         </section>
       )}
+
+      <section className="mt-14 rounded-[28px] border border-line bg-white p-6 shadow-sm sm:p-8">
+        <div className="grid gap-6 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+          <div>
+            <p className="text-sm font-bold text-accent">{dict.checklistEyebrow}</p>
+            <h2 className="mt-2 text-2xl font-extrabold text-ink">{dict.checklistHeading}</h2>
+            <p className="mt-3 text-sm leading-6 text-subInk">{dict.checklistLead}</p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {dict.checklistItems.map((item) => (
+              <div key={item} className="rounded-2xl bg-mutedSurface px-4 py-3 text-sm font-semibold text-ink">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
