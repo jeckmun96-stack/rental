@@ -27,7 +27,7 @@ export const cities: City[] = [
       '무료 취소 가능 상품은 출발 24~48시간 전까지 조건이 붙는 경우가 많습니다. 예약 버튼 이동 후 취소 가능 시점을 확인하세요.',
     vendorComparisonNote:
       '오사카는 간사이공항 인수와 시내 반납 조건이 일정에 큰 영향을 줍니다. 가격만 보지 말고 ETC 카드, 보험 포함, 영업시간을 함께 확인하세요.',
-    relatedCitySlugs: ['japan-fukuoka', 'japan-tokyo', 'usa-hawaii', 'taiwan-taipei'],
+    relatedCitySlugs: ['japan-kyoto', 'japan-fukuoka', 'japan-tokyo', 'usa-hawaii'],
     isPublished: true
   },
   {
@@ -56,7 +56,7 @@ export const cities: City[] = [
       '무료 취소 상품이라도 현지 업체 규정에 따라 마감 시간이 다를 수 있습니다.',
     vendorComparisonNote:
       '후쿠오카는 소형차 수요가 많아 성수기에는 가격이 빠르게 오릅니다. 유후인·벳푸 일정은 조기 예약 기준으로 차량 등급과 취소 조건을 함께 보세요.',
-    relatedCitySlugs: ['japan-osaka', 'japan-tokyo', 'vietnam-danang'],
+    relatedCitySlugs: ['japan-osaka', 'japan-okinawa', 'japan-tokyo', 'vietnam-danang'],
     isPublished: true
   },
   {
@@ -85,7 +85,123 @@ export const cities: City[] = [
       '성수기에는 무료 취소 상품이 먼저 마감될 수 있어 취소 가능 상품을 우선 확인하세요.',
     vendorComparisonNote:
       '도쿄는 공항 픽업 여부와 반납 지점이 특히 중요합니다. 공항 반납 추가비와 영업시간을 비교하세요.',
-    relatedCitySlugs: ['japan-osaka', 'japan-fukuoka', 'usa-hawaii'],
+    relatedCitySlugs: ['japan-osaka', 'japan-fukuoka', 'japan-kyoto', 'usa-hawaii'],
+    isPublished: true
+  },
+  {
+    id: 'japan-sapporo',
+    countrySlug: 'japan',
+    citySlug: 'sapporo',
+    countryNameKo: '일본',
+    cityNameKo: '삿포로',
+    heroTitle: '삿포로 렌터카 예약 가이드',
+    heroLead:
+      '신치토세공항 픽업부터 오타루·비에이·후라노 근교 이동까지, 홋카이도 여행에서 렌터카 활용도가 가장 높은 삿포로의 예약 전 확인 사항을 정리했습니다.',
+    metaTitle: '삿포로 렌터카 예약 가이드 | 홋카이도 겨울·여름 렌트카 비교',
+    metaDescription:
+      '삿포로 렌터카 예약 전 국제운전면허증, 겨울철 스노타이어 여부, 공항 픽업, 보험 조건을 확인하세요.',
+    intlLicenseRequired: true,
+    intlLicenseNote:
+      '일본은 국제운전면허증과 국내 운전면허증, 여권을 함께 준비해야 합니다.',
+    drivingCaution:
+      '겨울철(11월~3월)은 노면 결빙이 흔해 스노타이어 장착 여부를 꼭 확인하고, 초행이라면 고속도로 위주 일정을 짜는 것이 안전합니다.',
+    airportPickupAvailable: true,
+    insuranceNote:
+      '겨울철 운전은 사고 위험이 높아 기본 면책보험 외 추가 보상 상품을 함께 검토하는 것이 좋습니다.',
+    depositNote:
+      '보증금은 차량 등급별로 다르며 겨울 성수기에는 스노타이어 전용 차량 재고가 먼저 마감될 수 있습니다.',
+    freeCancellationNote:
+      '폭설로 인한 항공편 변경 가능성이 있는 겨울철은 무료 취소 가능 상품을 우선 확인하세요.',
+    vendorComparisonNote:
+      '삿포로는 겨울과 여름 수요 차이가 커서 시즌별로 가격 변동이 큽니다. 스노타이어 포함 여부와 반납 지점을 함께 비교하세요.',
+    relatedCitySlugs: ['japan-osaka', 'japan-nagoya', 'japan-tokyo'],
+    isPublished: true
+  },
+  {
+    id: 'japan-okinawa',
+    countrySlug: 'japan',
+    citySlug: 'okinawa',
+    countryNameKo: '일본',
+    cityNameKo: '오키나와',
+    heroTitle: '오키나와 렌터카 예약 가이드',
+    heroLead:
+      '나하공항 픽업부터 추라우미 수족관·북부 해안 드라이브까지, 대중교통만으로는 다니기 어려운 오키나와에서 렌터카 예약 전 확인할 사항을 정리했습니다.',
+    metaTitle: '오키나와 렌터카 예약 가이드 | 나하공항 픽업·북부 드라이브 비교',
+    metaDescription:
+      '오키나와 렌터카 예약 전 국제운전면허증, 나하공항 픽업, 보험, 보증금, 무료 취소 조건을 확인하세요.',
+    intlLicenseRequired: true,
+    intlLicenseNote:
+      '오키나와도 일본 본토와 동일하게 국제운전면허증과 국내 면허증, 여권이 필요합니다.',
+    drivingCaution:
+      '오키나와는 대중교통이 제한적이라 렌터카 의존도가 높습니다. 좁은 주택가 도로와 관광지 주차장 혼잡에 유의하세요.',
+    airportPickupAvailable: true,
+    insuranceNote:
+      '휴양지 특성상 장거리 해안 도로 운전이 많아 자차보험 면책금 수준을 꼼꼼히 비교하는 것이 좋습니다.',
+    depositNote:
+      '성수기(여름 휴가철)에는 인기 차종 보증금과 재고 확인이 특히 중요합니다.',
+    freeCancellationNote:
+      '태풍 시즌(여름~가을)에는 일정 변경 가능성이 있어 무료 취소 조건을 우선 확인하세요.',
+    vendorComparisonNote:
+      '오키나와는 공항 반납 시간과 ETC 카드 포함 여부에 따라 체감 비용 차이가 큽니다. 북부 일정이 많다면 주행거리 제한도 함께 확인하세요.',
+    relatedCitySlugs: ['japan-osaka', 'japan-fukuoka', 'usa-guam'],
+    isPublished: true
+  },
+  {
+    id: 'japan-nagoya',
+    countrySlug: 'japan',
+    citySlug: 'nagoya',
+    countryNameKo: '일본',
+    cityNameKo: '나고야',
+    heroTitle: '나고야 렌터카 예약 가이드',
+    heroLead:
+      '주부공항 픽업부터 시라카와고·기후 근교 드라이브까지, 나고야를 거점으로 중부 일본을 여행할 때 렌터카 예약 전 확인할 사항을 정리했습니다.',
+    metaTitle: '나고야 렌터카 예약 가이드 | 시라카와고·기후 여행 렌트카 비교',
+    metaDescription:
+      '나고야 렌터카 예약 전 국제운전면허증, 주부공항 픽업, 산간도로 운전 유의사항, 보험 조건을 확인하세요.',
+    intlLicenseRequired: true,
+    intlLicenseNote:
+      '일본 운전에는 국제운전면허증, 국내 운전면허증, 여권을 함께 지참해야 합니다.',
+    drivingCaution:
+      '시라카와고·다카야마 방향은 산간도로가 많아 겨울철 적설과 급커브에 대비한 여유 있는 일정이 필요합니다.',
+    airportPickupAvailable: true,
+    insuranceNote:
+      '산간 장거리 운전이 있다면 기본 보험 외 긴급출동, 타이어 파손 보상 조건도 함께 확인하세요.',
+    depositNote:
+      '보증금 정책은 차량 등급과 플랫폼별로 달라 예약 전 최종 화면에서 재확인이 필요합니다.',
+    freeCancellationNote:
+      '무료 취소 상품이라도 현지 업체 규정상 마감 시점이 다를 수 있습니다.',
+    vendorComparisonNote:
+      '나고야는 주부공항 픽업과 시내 반납 조합에 따라 이동 동선이 크게 달라집니다. 반납 지점 영업시간을 꼭 비교하세요.',
+    relatedCitySlugs: ['japan-osaka', 'japan-sapporo', 'japan-kyoto'],
+    isPublished: true
+  },
+  {
+    id: 'japan-kyoto',
+    countrySlug: 'japan',
+    citySlug: 'kyoto',
+    countryNameKo: '일본',
+    cityNameKo: '교토',
+    heroTitle: '교토 렌터카 예약 가이드',
+    heroLead:
+      '오사카에서 가깝지만 교토만의 근교(아라시야마·우지) 드라이브를 원한다면, 예약 전 면허·보험·주차 조건을 먼저 확인하세요.',
+    metaTitle: '교토 렌터카 예약 가이드 | 아라시야마·우지 근교 드라이브 비교',
+    metaDescription:
+      '교토 렌터카 예약 전 국제운전면허증, 시내 좁은 도로 주의사항, 보험, 주차 조건을 확인하세요.',
+    intlLicenseRequired: true,
+    intlLicenseNote:
+      '교토도 일본 본토와 동일하게 국제운전면허증과 국내 면허증, 여권이 필요합니다.',
+    drivingCaution:
+      '교토 시내는 도로가 좁고 관광객 통행이 많아 주차와 저속 주행에 유의해야 합니다. 근교 이동 위주로 일정을 짜는 것이 편합니다.',
+    airportPickupAvailable: false,
+    insuranceNote:
+      '시내 저속 접촉사고 위험이 있어 자차보험 면책금 수준을 꼭 확인하세요.',
+    depositNote:
+      '간사이공항 인수 후 교토로 이동하는 경우가 많아 픽업 지점별 보증금 조건을 함께 비교하세요.',
+    freeCancellationNote:
+      '무료 취소 가능 여부는 픽업 지점(간사이공항 vs 교토 시내)에 따라 다를 수 있습니다.',
+    vendorComparisonNote:
+      '교토는 시내 주차비가 비싸 근교 드라이브 위주라면 간사이공항 픽업 후 교토를 경유하는 동선이 유리한 경우가 많습니다.',
+    relatedCitySlugs: ['japan-osaka', 'japan-nagoya', 'japan-fukuoka'],
     isPublished: true
   },
   {
