@@ -9,14 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        surface: '#FFFBF5',
-        mutedSurface: '#FFF6EA',
-        ink: '#2B2A28',
-        subInk: '#8A8580',
-        accent: '#FF8A5B',
-        trust: '#3AA787',
-        warning: '#B5533C',
-        line: '#F0E9DE',
+        surface: '#FFFBF3',
+        mutedSurface: '#FDF1E4',
+        ink: '#4A3B2E',
+        subInk: '#9C8879',
+        accent: '#F4966B',
+        trust: '#7FB89A',
+        warning: '#E08669',
+        line: '#F2E4D3',
         tripcom: '#2557D6',
         klook: '#FF5722',
         agoda: '#2557D6'

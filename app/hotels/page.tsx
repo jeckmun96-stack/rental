@@ -5,7 +5,7 @@ import { hotelDestinationGroups } from '@/lib/data/hotelDestinations';
 
 export const metadata: Metadata = {
   title: '아고다 호텔 검색',
-  description: '렌트카팁쿠폰에서 Agoda API 기반 호텔 검색을 준비하는 페이지입니다.'
+  description: '여행늘보에서 Agoda API 기반 호텔 검색을 준비하는 페이지입니다.'
 };
 
 export default function HotelsPage() {

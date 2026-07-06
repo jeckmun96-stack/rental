@@ -1,12 +1,15 @@
 import Link from 'next/link';
+import { SlothMascot } from '@/components/SlothMascot';
 
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-line/80 bg-surface/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2 font-extrabold tracking-tight text-ink">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent text-white">팁</span>
-          <span>렌트카팁쿠폰</span>
+          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-mutedSurface">
+            <SlothMascot className="h-9 w-9" />
+          </span>
+          <span>여행늘보</span>
         </Link>
         <nav className="hidden items-center gap-5 text-sm font-medium text-subInk md:flex">
           <Link href="/rentcar" className="hover:text-accent">

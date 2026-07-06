@@ -5,10 +5,10 @@ import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: {
-    default: '렌트카팁쿠폰 | 해외 렌터카·호텔 예약 팁',
-    template: '%s | 렌트카팁쿠폰'
+    default: '여행늘보 | 느긋해도 꼼꼼한 여행 예약 가이드',
+    template: '%s | 여행늘보'
   },
-  description: '해외 렌터카부터 호텔까지, 예약 전 팁과 쿠폰 정보를 한눈에 확인하세요.'
+  description: '렌터카부터 호텔, 항공권까지. 느긋한 나무늘보가 예약 전에 확인할 것들을 대신 꼼꼼히 챙겨드려요.'
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

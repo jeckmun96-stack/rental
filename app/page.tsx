@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { CityCard } from '@/components/rentcar/CityCard';
+import { SlothMascot } from '@/components/SlothMascot';
 import {
   homeInfoCards,
   mainCategoryCards,
@@ -25,27 +26,32 @@ export default function HomePage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
       <section className="rounded-[32px] border border-line bg-white p-6 shadow-soft sm:p-12">
-        <div className="max-w-3xl">
-          <p className="text-sm font-bold text-accent">Rentcar Tip Coupon</p>
-          <h1 className="mt-4 text-[34px] font-extrabold leading-[1.16] text-ink sm:text-[56px]">
-            렌트카팁쿠폰
-          </h1>
-          <p className="mt-5 text-base leading-8 text-subInk sm:text-lg">
-            해외 렌터카부터 호텔까지, 예약 전 팁과 쿠폰을 한눈에 확인하세요.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/rentcar"
-              className="inline-flex items-center justify-center rounded-2xl bg-accent px-5 py-3 text-sm font-bold text-white transition hover:bg-accent/90"
-            >
-              도시별 렌터카 보기
-            </Link>
-            <Link
-              href="/checklist"
-              className="inline-flex items-center justify-center rounded-2xl border border-line bg-white px-5 py-3 text-sm font-bold text-ink transition hover:border-accent hover:text-accent"
-            >
-              예약 전 체크리스트
-            </Link>
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-center">
+          <div className="max-w-3xl">
+            <p className="text-sm font-bold text-accent">Travel Sloth</p>
+            <h1 className="mt-4 text-[34px] font-extrabold leading-[1.16] text-ink sm:text-[56px]">
+              여행늘보
+            </h1>
+            <p className="mt-5 text-base leading-8 text-subInk sm:text-lg">
+              느긋해 보여도 확인할 건 다 확인해요. 렌터카부터 호텔, 항공권까지 예약 전 체크포인트를 여행늘보가 미리 정리해뒀어요.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/rentcar"
+                className="inline-flex items-center justify-center rounded-2xl bg-accent px-5 py-3 text-sm font-bold text-white transition hover:bg-accent/90"
+              >
+                도시별 렌터카 보기
+              </Link>
+              <Link
+                href="/checklist"
+                className="inline-flex items-center justify-center rounded-2xl border border-line bg-white px-5 py-3 text-sm font-bold text-ink transition hover:border-accent hover:text-accent"
+              >
+                예약 전 체크리스트
+              </Link>
+            </div>
+          </div>
+          <div className="mx-auto flex h-40 w-40 flex-none items-center justify-center rounded-full bg-mutedSurface sm:h-52 sm:w-52">
+            <SlothMascot className="h-32 w-32 sm:h-40 sm:w-40" />
           </div>
         </div>
 
