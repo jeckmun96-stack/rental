@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: LocalePageProps): Promise<Met
   }
   const dict = getDictionary(params.locale);
   return {
-    title: `${dict.brandName} | ${dict.brandTagline}`,
+    title: { absolute: dict.brandName },
     description: dict.heroLead
   };
 }
