@@ -1,8 +1,8 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import { CategoryCard } from '@/components/CategoryCard';
 import { CityCard } from '@/components/rentcar/CityCard';
 import { SlothMascot } from '@/components/SlothMascot';
-import { mainCategoryCards, platformBadgeClassMap, type MainCategoryCard } from '@/lib/data/categoryCards';
+import { mainCategoryCards } from '@/lib/data/categoryCards';
 import { getFeaturedCities } from '@/lib/data/cities';
 
 export default function HomePage() {
@@ -72,7 +72,16 @@ export default function HomePage() {
         </div>
         <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3">
           {mainCategoryCards.map((card) => (
-            <CategoryCard key={card.id} card={card} />
+            <CategoryCard
+              key={card.id}
+              imageUrl={card.imageUrl}
+              imageAlt={card.imageAlt}
+              badges={card.badges}
+              href={card.href}
+              title={card.title}
+              description={card.description}
+              ctaLabel={card.ctaLabel}
+            />
           ))}
         </div>
       </section>
@@ -120,47 +129,5 @@ export default function HomePage() {
         </div>
       </section>
     </div>
-  );
-}
-
-function CategoryCard({ card }: { card: MainCategoryCard }) {
-  const isExternal = card.href.startsWith('http');
-
-  const buttonClassName =
-    'mt-3 sm:mt-5 inline-flex w-full items-center justify-center rounded-xl bg-accent px-3 py-2.5 sm:px-4 sm:py-3 text-xs sm:text-sm font-bold text-white transition hover:bg-accent/90';
-  const button = isExternal ? (
-    <a href={card.href} target="_blank" rel="noopener noreferrer sponsored" className={buttonClassName}>
-      {card.ctaLabel}
-    </a>
-  ) : (
-    <Link href={card.href} className={buttonClassName}>
-      {card.ctaLabel}
-    </Link>
-  );
-
-  return (
-    <article className="overflow-hidden rounded-2xl border border-line bg-white shadow-sm sm:rounded-[24px]">
-      <div className="relative aspect-[4/3] sm:aspect-[16/10]">
-        <Image src={card.imageUrl} alt={card.imageAlt} fill sizes="(min-width: 768px) 33vw, 50vw" className="object-cover" />
-      </div>
-      <div className="p-3 sm:p-5">
-        <div className="flex flex-wrap gap-1.5 sm:gap-2">
-          {card.badges.map((badge) => (
-            <span
-              key={badge.label}
-              className={`rounded-full px-2 py-0.5 text-[10px] font-extrabold sm:px-3 sm:py-1 sm:text-xs ${platformBadgeClassMap[badge.key]}`}
-            >
-              {badge.label}
-            </span>
-          ))}
-        </div>
-        <h3 className="mt-2 text-sm font-extrabold text-ink sm:mt-4 sm:text-xl">{card.title}</h3>
-        <p className="mt-1 text-xs leading-5 text-subInk line-clamp-2 sm:mt-2 sm:min-h-20 sm:text-sm sm:leading-6 sm:line-clamp-none">
-          {card.description}
-        </p>
-
-        {button}
-      </div>
-    </article>
   );
 }
