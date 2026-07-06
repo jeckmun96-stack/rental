@@ -74,8 +74,7 @@ export default function HomePage() {
           {mainCategoryCards.map((card) => (
             <CategoryCard
               key={card.id}
-              imageUrl={card.imageUrl}
-              imageAlt={card.imageAlt}
+              id={card.id}
               badges={card.badges}
               href={card.href}
               title={card.title}

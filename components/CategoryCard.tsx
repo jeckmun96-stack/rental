@@ -1,10 +1,11 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import { Car, Plane, Luggage, Smartphone, Compass, Ticket, type LucideIcon } from 'lucide-react';
+import { SlothMascot } from '@/components/SlothMascot';
 import { platformBadgeClassMap, type PlatformBadge } from '@/lib/data/categoryCards';
+import type { CategoryId } from '@/lib/i18n/dictionaries';
 
 export interface CategoryCardProps {
-  imageUrl: string;
-  imageAlt: string;
+  id: CategoryId;
   badges: PlatformBadge[];
   href: string;
   title: string;
@@ -12,8 +13,18 @@ export interface CategoryCardProps {
   ctaLabel: string;
 }
 
-export function CategoryCard({ imageUrl, imageAlt, badges, href, title, description, ctaLabel }: CategoryCardProps) {
+const categoryIconMap: Record<CategoryId, LucideIcon> = {
+  rentcar: Car,
+  transport: Luggage,
+  flight: Plane,
+  esim: Smartphone,
+  activity: Compass,
+  attraction: Ticket
+};
+
+export function CategoryCard({ id, badges, href, title, description, ctaLabel }: CategoryCardProps) {
   const isExternal = href.startsWith('http');
+  const Icon = categoryIconMap[id];
 
   const buttonClassName =
     'mt-3 sm:mt-5 inline-flex w-full items-center justify-center rounded-xl bg-accent px-3 py-2.5 sm:px-4 sm:py-3 text-xs sm:text-sm font-bold text-white transition hover:bg-accent/90';
@@ -29,8 +40,11 @@ export function CategoryCard({ imageUrl, imageAlt, badges, href, title, descript
 
   return (
     <article className="overflow-hidden rounded-2xl border border-line bg-white shadow-sm sm:rounded-[24px]">
-      <div className="relative aspect-[4/3] sm:aspect-[16/10]">
-        <Image src={imageUrl} alt={imageAlt} fill sizes="(min-width: 768px) 33vw, 50vw" className="object-cover" />
+      <div className="relative flex aspect-[4/3] items-center justify-center bg-gradient-to-br from-accent/15 via-mutedSurface to-white sm:aspect-[16/10]">
+        <Icon className="h-10 w-10 text-accent sm:h-14 sm:w-14" strokeWidth={1.75} aria-hidden="true" />
+        <span className="absolute bottom-2 right-2 flex h-7 w-7 items-center justify-center rounded-full bg-white/80 sm:h-9 sm:w-9">
+          <SlothMascot className="h-5 w-5 sm:h-7 sm:w-7" />
+        </span>
       </div>
       <div className="p-3 sm:p-5">
         <div className="flex flex-wrap gap-1.5 sm:gap-2">
