@@ -3,10 +3,10 @@ import Link from 'next/link';
 import { CityCard } from '@/components/rentcar/CityCard';
 import { SlothMascot } from '@/components/SlothMascot';
 import { mainCategoryCards, platformBadgeClassMap, type MainCategoryCard } from '@/lib/data/categoryCards';
-import { getPublishedCities } from '@/lib/data/cities';
+import { getFeaturedCities } from '@/lib/data/cities';
 
 export default function HomePage() {
-  const cities = getPublishedCities();
+  const cities = getFeaturedCities();
   const chips = [
     '일본 렌터카',
     '미국·하와이 렌터카',
@@ -83,11 +83,11 @@ export default function HomePage() {
             <p className="text-sm font-bold text-accent">인기 도시</p>
             <h2 className="mt-2 text-2xl font-extrabold text-ink">인기 도시 렌터카 가이드</h2>
           </div>
-          <Link href="/rentcar" className="hidden text-sm font-bold text-accent sm:inline-flex">
+          <Link href="/rentcar" className="text-sm font-bold text-accent">
             전체 보기
           </Link>
         </div>
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 grid gap-2 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {cities.map((city) => (
             <CityCard key={city.id} city={city} />
           ))}

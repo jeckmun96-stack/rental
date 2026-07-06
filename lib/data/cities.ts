@@ -666,6 +666,10 @@ export function getPublishedCities() {
   return cities.filter((city) => city.isPublished);
 }
 
+export function getFeaturedCities(limit = 8) {
+  return getPublishedCities().slice(0, limit);
+}
+
 export function getCityBySlug(countrySlug: string, citySlug: string) {
   return getPublishedCities().find(
     (city) => city.countrySlug === countrySlug && city.citySlug === citySlug
