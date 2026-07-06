@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { TripComFlightSearch } from '@/components/flights/TripComFlightSearch';
 
 export const metadata: Metadata = {
-  title: '항공권 검색 | 렌트카팁쿠폰',
+  title: '항공권 검색',
   description: '트립닷컴 항공권 검색으로 출발지·도착지, 날짜만 입력해 바로 항공권 가격을 비교하세요.'
 };
 
