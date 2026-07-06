@@ -15,7 +15,7 @@ export interface CategorySubItem {
 }
 
 export interface MainCategoryCard {
-  id: 'rentcar' | 'transport' | 'hotel' | 'esim' | 'activity' | 'attraction' | 'flight';
+  id: 'rentcar' | 'transport' | 'esim' | 'activity' | 'attraction' | 'flight';
   title: string;
   description: string;
   imageUrl: string;
@@ -49,8 +49,8 @@ export const homeInfoCards: HomeInfoCard[] = [
   {
     title: '예약처 바로 연결',
     description: '클룩, 트립닷컴 등 예약 가능한 페이지로 바로 이동할 수 있어요.',
-    imageUrl: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=640&q=80',
-    imageAlt: '공항에서 여행자가 이동하는 장면'
+    imageUrl: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=640&q=80',
+    imageAlt: '스마트폰으로 예약을 확인하는 장면'
   },
   {
     title: '쿠폰·할인코드 준비',
@@ -65,8 +65,8 @@ export const mainCategoryCards: MainCategoryCard[] = [
     id: 'rentcar',
     title: '렌터카',
     description: '해외 렌터카 예약 전 보험, 보증금, 무료취소 조건을 확인하세요.',
-    imageUrl: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80',
-    imageAlt: '도로 위를 달리는 여행 차량',
+    imageUrl: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: '해안 도로를 따라 달리는 여행 차량',
     href: AFFILIATE_LINKS.rentcar,
     ctaLabel: '렌터카 상품 보기',
     badges: [{ key: 'klook', label: 'KLOOK' }]
@@ -75,8 +75,8 @@ export const mainCategoryCards: MainCategoryCard[] = [
     id: 'transport',
     title: '이동수단',
     description: '공항픽업부터 페리, 크루즈까지 일정에 맞는 이동 방법을 확인하세요.',
-    imageUrl: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80',
-    imageAlt: '공항에서 다음 이동수단을 준비하는 여행자',
+    imageUrl: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: '캐리어를 끌고 이동하는 여행자',
     href: '/compare',
     ctaLabel: '이동수단 보기',
     badges: [
@@ -113,16 +113,6 @@ export const mainCategoryCards: MainCategoryCard[] = [
     href: '/flights',
     ctaLabel: '항공권 검색하기',
     badges: [{ key: 'tripcom', label: 'TRIP.COM' }]
-  },
-  {
-    id: 'hotel',
-    title: '호텔',
-    description: '아고다 호텔 검색과 도시별 숙소 가이드를 준비할 수 있는 카테고리입니다.',
-    imageUrl: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
-    imageAlt: '수영장이 있는 호텔 리조트 외관',
-    href: '/hotels',
-    ctaLabel: '호텔 검색하기',
-    badges: [{ key: 'agoda', label: 'AGODA' }]
   },
   {
     id: 'esim',

@@ -2,12 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { CityCard } from '@/components/rentcar/CityCard';
 import { SlothMascot } from '@/components/SlothMascot';
-import {
-  homeInfoCards,
-  mainCategoryCards,
-  platformBadgeClassMap,
-  type MainCategoryCard
-} from '@/lib/data/categoryCards';
+import { mainCategoryCards, platformBadgeClassMap, type MainCategoryCard } from '@/lib/data/categoryCards';
 import { getPublishedCities } from '@/lib/data/cities';
 
 export default function HomePage() {
@@ -18,7 +13,6 @@ export default function HomePage() {
     '괌 렌터카',
     '동남아 렌터카',
     '공항픽업',
-    '호텔',
     '보험 체크',
     '쿠폰 준비'
   ];
@@ -33,7 +27,7 @@ export default function HomePage() {
               여행늘보
             </h1>
             <p className="mt-5 text-base leading-8 text-subInk sm:text-lg">
-              느긋해 보여도 확인할 건 다 확인해요. 렌터카부터 호텔, 항공권까지 예약 전 체크포인트를 여행늘보가 미리 정리해뒀어요.
+              느긋해 보여도 확인할 건 다 확인해요. 렌터카부터 항공권까지 예약 전 체크포인트를 여행늘보가 미리 정리해뒀어요.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -55,30 +49,16 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
-          {homeInfoCards.map((item) => (
-            <article key={item.title} className="overflow-hidden rounded-2xl border border-line bg-surface">
-              <div className="relative aspect-[5/3]">
-                <Image src={item.imageUrl} alt={item.imageAlt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
-              </div>
-              <div className="p-4">
-                <h2 className="text-sm font-extrabold text-ink">{item.title}</h2>
-                <p className="mt-2 text-sm leading-6 text-subInk">{item.description}</p>
-              </div>
-            </article>
+        <div className="mt-8 flex flex-wrap gap-2">
+          {chips.map((chip) => (
+            <span key={chip} className="rounded-full border border-line bg-mutedSurface px-3.5 py-2 text-sm font-semibold text-subInk">
+              {chip}
+            </span>
           ))}
         </div>
       </section>
 
-      <section className="mt-8 flex flex-wrap gap-2">
-        {chips.map((chip) => (
-          <span key={chip} className="rounded-full border border-line bg-white px-3.5 py-2 text-sm font-semibold text-subInk">
-            {chip}
-          </span>
-        ))}
-      </section>
-
-      <section className="mt-14">
+      <section className="mt-10">
         <div className="flex items-end justify-between gap-4">
           <div>
             <p className="text-sm font-bold text-accent">여행 예약 카테고리</p>
@@ -90,7 +70,7 @@ export default function HomePage() {
             이동수단 기준 보기
           </Link>
         </div>
-        <div className="mt-6 grid gap-5 md:grid-cols-3">
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3">
           {mainCategoryCards.map((card) => (
             <CategoryCard key={card.id} card={card} />
           ))}
@@ -147,7 +127,7 @@ function CategoryCard({ card }: { card: MainCategoryCard }) {
   const isExternal = card.href.startsWith('http');
 
   const buttonClassName =
-    'mt-5 inline-flex w-full items-center justify-center rounded-xl bg-accent px-4 py-3 text-sm font-bold text-white transition hover:bg-accent/90';
+    'mt-3 sm:mt-5 inline-flex w-full items-center justify-center rounded-xl bg-accent px-3 py-2.5 sm:px-4 sm:py-3 text-xs sm:text-sm font-bold text-white transition hover:bg-accent/90';
   const button = isExternal ? (
     <a href={card.href} target="_blank" rel="noopener noreferrer sponsored" className={buttonClassName}>
       {card.ctaLabel}
@@ -159,23 +139,25 @@ function CategoryCard({ card }: { card: MainCategoryCard }) {
   );
 
   return (
-    <article className="overflow-hidden rounded-[24px] border border-line bg-white shadow-sm">
-      <div className="relative aspect-[16/10]">
-        <Image src={card.imageUrl} alt={card.imageAlt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+    <article className="overflow-hidden rounded-2xl border border-line bg-white shadow-sm sm:rounded-[24px]">
+      <div className="relative aspect-[4/3] sm:aspect-[16/10]">
+        <Image src={card.imageUrl} alt={card.imageAlt} fill sizes="(min-width: 768px) 33vw, 50vw" className="object-cover" />
       </div>
-      <div className="p-5">
-        <div className="flex flex-wrap gap-2">
+      <div className="p-3 sm:p-5">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2">
           {card.badges.map((badge) => (
             <span
               key={badge.label}
-              className={`rounded-full px-3 py-1 text-xs font-extrabold ${platformBadgeClassMap[badge.key]}`}
+              className={`rounded-full px-2 py-0.5 text-[10px] font-extrabold sm:px-3 sm:py-1 sm:text-xs ${platformBadgeClassMap[badge.key]}`}
             >
               {badge.label}
             </span>
           ))}
         </div>
-        <h3 className="mt-4 text-xl font-extrabold text-ink">{card.title}</h3>
-        <p className="mt-2 min-h-20 text-sm leading-6 text-subInk">{card.description}</p>
+        <h3 className="mt-2 text-sm font-extrabold text-ink sm:mt-4 sm:text-xl">{card.title}</h3>
+        <p className="mt-1 text-xs leading-5 text-subInk line-clamp-2 sm:mt-2 sm:min-h-20 sm:text-sm sm:leading-6 sm:line-clamp-none">
+          {card.description}
+        </p>
 
         {button}
       </div>

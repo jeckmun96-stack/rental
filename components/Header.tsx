@@ -24,9 +24,6 @@ export function Header() {
           <Link href="/compare" className="hover:text-accent">
             이동수단 비교
           </Link>
-          <Link href="/hotels" className="hover:text-accent">
-            호텔
-          </Link>
           <Link href="/flights" className="hover:text-accent">
             항공권
           </Link>

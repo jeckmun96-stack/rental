@@ -1,12 +1,27 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight, ClipboardCheck, HelpCircle } from 'lucide-react';
+import { ArrowRight, Car, ClipboardCheck, HelpCircle } from 'lucide-react';
 import { getCitiesByCountry } from '@/lib/data/cities';
 import { RentcarCouponStrip } from '@/components/rentcar/RentcarCouponStrip';
 
 export const metadata: Metadata = {
   title: '해외 렌터카 도시별 가이드',
   description: '일본, 미국, 베트남, 태국 등 해외 렌터카 예약 전 확인할 도시별 면허, 보험, 보증금, 공항 픽업 정보를 모았습니다.'
+};
+
+const countryFlagMap: Record<string, string> = {
+  뉴질랜드: '🇳🇿',
+  대만: '🇹🇼',
+  대한민국: '🇰🇷',
+  말레이시아: '🇲🇾',
+  미국: '🇺🇸',
+  '미국령 괌': '🇬🇺',
+  베트남: '🇻🇳',
+  영국: '🇬🇧',
+  일본: '🇯🇵',
+  태국: '🇹🇭',
+  프랑스: '🇫🇷',
+  호주: '🇦🇺'
 };
 
 export default function RentcarHubPage() {
@@ -29,19 +44,32 @@ export default function RentcarHubPage() {
       <section id="popular-cities" className="mt-12 grid gap-6">
         {Object.entries(groupedCities).map(([countryName, cities]) => (
           <div key={countryName} className="rounded-3xl border border-line bg-white p-6 shadow-sm">
-            <h2 className="text-xl font-extrabold tracking-[-0.02em] text-ink">{countryName}</h2>
+            <div className="flex items-center gap-2">
+              <span className="text-2xl" aria-hidden="true">
+                {countryFlagMap[countryName] ?? '🧭'}
+              </span>
+              <h2 className="text-xl font-extrabold tracking-[-0.02em] text-ink">{countryName}</h2>
+              <span className="rounded-full bg-accent/10 px-2.5 py-1 text-xs font-extrabold text-accent">
+                {cities.length}개 도시
+              </span>
+            </div>
             <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {cities.map((city) => (
                 <Link
                   key={city.id}
                   href={`/rentcar/${city.countrySlug}/${city.citySlug}`}
-                  className="group flex items-center justify-between rounded-2xl bg-mutedSurface px-4 py-4 transition hover:bg-accent/10"
+                  className="group flex items-center gap-3 rounded-2xl border border-transparent bg-mutedSurface px-4 py-4 transition hover:border-accent/40 hover:bg-accent/10"
                 >
-                  <div>
-                    <p className="text-sm font-semibold text-subInk">{city.countryNameKo}</p>
-                    <p className="mt-1 font-extrabold text-ink group-hover:text-accent">{city.cityNameKo} 렌터카</p>
+                  <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-accent/15 text-accent transition group-hover:bg-accent group-hover:text-white">
+                    <Car className="h-4 w-4" aria-hidden="true" />
+                  </span>
+                  <div className="flex flex-1 items-center justify-between gap-2">
+                    <div>
+                      <p className="text-sm font-semibold text-subInk">{city.countryNameKo}</p>
+                      <p className="mt-1 font-extrabold text-ink group-hover:text-accent">{city.cityNameKo} 렌터카</p>
+                    </div>
+                    <ArrowRight className="h-4 w-4 flex-none text-subInk group-hover:text-accent" />
                   </div>
-                  <ArrowRight className="h-4 w-4 text-subInk group-hover:text-accent" />
                 </Link>
               ))}
             </div>
