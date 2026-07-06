@@ -15,7 +15,7 @@ export interface CategorySubItem {
 }
 
 export interface MainCategoryCard {
-  id: 'rentcar' | 'transport' | 'hotel';
+  id: 'rentcar' | 'transport' | 'hotel' | 'esim' | 'activity';
   title: string;
   description: string;
   imageUrl: string;
@@ -113,5 +113,27 @@ export const mainCategoryCards: MainCategoryCard[] = [
     href: '/hotels',
     ctaLabel: '호텔 검색하기',
     badges: [{ key: 'agoda', label: 'AGODA' }]
+  },
+  {
+    id: 'esim',
+    title: '이심(eSIM)·유심',
+    description: '해외여행 데이터 유심·이심을 미리 준비하세요. 공항 수령 없이 바로 개통할 수 있는 상품도 있습니다.',
+    imageUrl: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: '스마트폰 유심을 준비하는 여행자',
+    // TODO: 클룩 어필리에이트 딥링크 생성 후 교체 필요 (지금은 임시 일반 링크)
+    href: 'https://www.klook.com/ko/simcard/',
+    ctaLabel: '이심·유심 보기',
+    badges: [{ key: 'klook', label: 'KLOOK' }]
+  },
+  {
+    id: 'activity',
+    title: '투어·입장권',
+    description: '테마파크 입장권, 현지 투어, 액티비티까지 클룩에서 한 번에 예약하세요.',
+    imageUrl: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: '입장권을 들고 있는 여행자',
+    // TODO: 클룩 어필리에이트 딥링크 생성 후 교체 필요 (지금은 임시 일반 링크)
+    href: 'https://www.klook.com/ko/',
+    ctaLabel: '투어·입장권 보기',
+    badges: [{ key: 'klook', label: 'KLOOK' }]
   }
 ];

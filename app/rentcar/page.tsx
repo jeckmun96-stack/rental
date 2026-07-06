@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, ClipboardCheck, HelpCircle } from 'lucide-react';
 import { getCitiesByCountry } from '@/lib/data/cities';
+import { RentcarCouponStrip } from '@/components/rentcar/RentcarCouponStrip';
 
 export const metadata: Metadata = {
   title: '해외 렌터카 도시별 가이드',
@@ -22,6 +23,8 @@ export default function RentcarHubPage() {
           여행지마다 운전 방향, 보험 조건, 보증금, 공항 픽업 가능 여부가 다릅니다. 먼저 도시별 가이드를 확인한 뒤 클룩 최종 예약 화면에서 차량 등급과 포함 조건을 다시 확인하세요.
         </p>
       </section>
+
+      <RentcarCouponStrip />
 
       <section id="popular-cities" className="mt-12 grid gap-6">
         {Object.entries(groupedCities).map(([countryName, cities]) => (

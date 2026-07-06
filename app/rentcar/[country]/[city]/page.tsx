@@ -6,6 +6,7 @@ import { CityFaqSection } from '@/components/rentcar/CityFaqSection';
 import { RelatedCities } from '@/components/rentcar/RelatedCities';
 import { RentcarOfferCard } from '@/components/rentcar/RentcarOfferCard';
 import { RentcarOfferList } from '@/components/rentcar/RentcarOfferList';
+import { RentcarCouponStrip } from '@/components/rentcar/RentcarCouponStrip';
 import { getRelatedCities } from '@/lib/data/cities';
 import { getAllStaticCityParams, getCityPageData } from '@/lib/rentcar';
 
@@ -82,6 +83,7 @@ export default async function CityPage({ params }: CityPageProps) {
         countrySlug={city.countrySlug}
         citySlug={city.citySlug}
       />
+      <RentcarCouponStrip />
       <CityFaqSection city={city} />
 
       {bottomOffers.length > 0 && (

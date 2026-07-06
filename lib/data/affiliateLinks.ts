@@ -1,7 +1,8 @@
 import type { OfferCategory, RentcarPlatform } from '@/types/rentcar';
 
 export const AFFILIATE_LINKS: Record<OfferCategory, string> = {
-  rentcar: 'https://affiliate.klook.com/sl/IA06E4D',
+  rentcar:
+    'https://affiliate.klook.com/redirect?aid=126314&aff_adid=1329419&k_site=https%3A%2F%2Fwww.klook.com%2Fko%2Fcar-rentals%2F',
   airport_transfer: 'https://affiliate.klook.com/sl/1el5TB1',
   ferry: 'https://affiliate.klook.com/sl/1GPgBJ7',
   cruise: 'https://www.trip.com/t/UlCBD6LlOV2'
