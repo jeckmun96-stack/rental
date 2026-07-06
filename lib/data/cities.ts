@@ -27,7 +27,7 @@ export const cities: City[] = [
       '무료 취소 가능 상품은 출발 24~48시간 전까지 조건이 붙는 경우가 많습니다. 예약 버튼 이동 후 취소 가능 시점을 확인하세요.',
     vendorComparisonNote:
       '오사카는 간사이공항 인수와 시내 반납 조건이 일정에 큰 영향을 줍니다. 가격만 보지 말고 ETC 카드, 보험 포함, 영업시간을 함께 확인하세요.',
-    relatedCitySlugs: ['japan-fukuoka', 'japan-tokyo', 'usa-hawaii'],
+    relatedCitySlugs: ['japan-fukuoka', 'japan-tokyo', 'usa-hawaii', 'taiwan-taipei'],
     isPublished: true
   },
   {
@@ -114,7 +114,7 @@ export const cities: City[] = [
       '플랫폼 예약 상품은 무료 취소 조건이 있는 경우가 많지만, 현지 업체·요금제별로 차이가 있습니다.',
     vendorComparisonNote:
       '하와이는 공항 지점, 숙소 주차비, 추가 운전자 요금이 총비용에 크게 반영됩니다. 차량 가격과 현장 추가 비용을 따로 계산해보세요.',
-    relatedCitySlugs: ['usa-guam', 'japan-osaka', 'thailand-bangkok'],
+    relatedCitySlugs: ['usa-guam', 'japan-osaka', 'thailand-bangkok', 'australia-sydney'],
     isPublished: true
   },
   {
@@ -201,7 +201,123 @@ export const cities: City[] = [
       '여행 일정 변동이 잦다면 무료 취소 가능 상품을 먼저 필터링해서 보는 것이 좋습니다.',
     vendorComparisonNote:
       '방콕은 도심 체증이 심해 직접 운전과 기사 포함 차량의 장단점이 분명합니다. 파타야 등 외곽 이동이 있는지에 따라 선택 기준을 달리하세요.',
-    relatedCitySlugs: ['vietnam-danang', 'usa-hawaii', 'japan-osaka'],
+    relatedCitySlugs: ['vietnam-danang', 'usa-hawaii', 'japan-osaka', 'thailand-phuket'],
+    isPublished: true
+  },
+  {
+    id: 'taiwan-taipei',
+    countrySlug: 'taiwan',
+    citySlug: 'taipei',
+    countryNameKo: '대만',
+    cityNameKo: '타이베이',
+    heroTitle: '타이베이 렌터카 예약 가이드',
+    heroLead:
+      '타오위안공항 픽업부터 지우펀·예류·이란 근교 이동까지, 한국인이 타이베이에서 렌터카를 빌릴 때 먼저 확인해야 할 면허·보험·보증금 정보를 정리했습니다.',
+    metaTitle: '타이베이 렌터카 예약 가이드 | 국제운전면허증·보험·공항 픽업 비교',
+    metaDescription:
+      '타이베이 렌터카 예약 전 국제운전면허증, 보험 포함 여부, 보증금, 타오위안공항 픽업 가능 상품을 비교해보세요.',
+    intlLicenseRequired: true,
+    intlLicenseNote:
+      '대만은 한국 국제운전면허증을 인정합니다. 국제운전면허증과 국내 운전면허증, 여권을 함께 준비하세요.',
+    drivingCaution:
+      '대만은 우측통행이지만 스쿠터 통행량이 매우 많습니다. 타이베이 시내보다는 공항 외곽에서 출발해 지우펀·이란 방향으로 이동하는 일정이 편합니다.',
+    airportPickupAvailable: true,
+    insuranceNote:
+      '기본 보험과 현장 추가 보험(갑식/을식) 조건이 나뉘는 경우가 많습니다. 예약 화면에서 면책금 범위를 꼭 확인하세요.',
+    depositNote:
+      '차량 등급에 따라 신용카드 보증금 홀드가 발생할 수 있습니다. 운전자 본인 명의 카드를 준비하세요.',
+    freeCancellationNote:
+      '무료 취소 가능 상품도 출발 24~48시간 전까지 조건이 붙는 경우가 많습니다. 예약 전 취소 마감 시점을 확인하세요.',
+    vendorComparisonNote:
+      '타이베이는 타오위안공항 인수와 시내 반납 조건이 일정에 영향을 줍니다. ETC 결제 방식과 보험 포함 여부를 함께 확인하세요.',
+    relatedCitySlugs: ['thailand-bangkok', 'malaysia-kuala-lumpur', 'japan-osaka'],
+    isPublished: true
+  },
+  {
+    id: 'thailand-phuket',
+    countrySlug: 'thailand',
+    citySlug: 'phuket',
+    countryNameKo: '태국',
+    cityNameKo: '푸켓',
+    heroTitle: '푸켓 렌터카 예약 가이드',
+    heroLead:
+      '푸켓은 파통·카론·카타 비치 이동과 팡아·크라비 근교 여행까지 렌터카 활용도가 높은 지역입니다. 공항 픽업과 보험 조건을 중심으로 비교해보세요.',
+    metaTitle: '푸켓 렌터카 예약 가이드 | 파통·카론 비치 이동 렌트카 비교',
+    metaDescription:
+      '푸켓 렌터카 예약 전 국제운전면허증, 비치 이동, 공항 픽업, 보험 포함 여부를 확인하세요.',
+    intlLicenseRequired: true,
+    intlLicenseNote:
+      '태국 운전에는 국제운전면허증과 국내 운전면허증, 여권을 함께 준비하는 것이 안전합니다.',
+    drivingCaution:
+      '태국은 좌측통행이며 푸켓은 산길과 좁은 해안도로가 많습니다. 야간 운전과 우기철 도로 상태에 주의하세요.',
+    airportPickupAvailable: true,
+    insuranceNote:
+      '보험 포함 상품이라도 자기부담금이 남을 수 있습니다. 현장 추가 보험 권유가 있을 수 있어 예약 전 조건을 확인하세요.',
+    depositNote:
+      '신용카드 보증금 홀드가 있을 수 있습니다. 운전자 본인 명의 카드가 필요한 상품이 많습니다.',
+    freeCancellationNote:
+      '여행 일정 변동이 잦다면 무료 취소 가능 상품을 먼저 필터링해서 보는 것이 좋습니다.',
+    vendorComparisonNote:
+      '푸켓은 공항 픽업 지점과 비치 반납 조건이 총비용에 영향을 줍니다. 가격만 보지 말고 보험 포함 여부와 반납 지점을 함께 확인하세요.',
+    relatedCitySlugs: ['thailand-bangkok', 'vietnam-danang', 'malaysia-kuala-lumpur'],
+    isPublished: true
+  },
+  {
+    id: 'malaysia-kuala-lumpur',
+    countrySlug: 'malaysia',
+    citySlug: 'kuala-lumpur',
+    countryNameKo: '말레이시아',
+    cityNameKo: '쿠알라룸푸르',
+    heroTitle: '쿠알라룸푸르 렌터카 예약 가이드',
+    heroLead:
+      'KLIA공항 픽업부터 겐팅하이랜드·말라카 근교 이동까지, 쿠알라룸푸르에서 렌터카를 빌릴 때 먼저 확인해야 할 면허·보험·보증금 정보를 정리했습니다.',
+    metaTitle: '쿠알라룸푸르 렌터카 예약 가이드 | 겐팅·말라카 여행 렌트카 비교',
+    metaDescription:
+      '쿠알라룸푸르 렌터카 예약 전 국제운전면허증, 겐팅하이랜드·말라카 이동, 공항 픽업, 보험 조건을 확인하세요.',
+    intlLicenseRequired: true,
+    intlLicenseNote:
+      '말레이시아는 국제운전면허증과 국내 운전면허증, 여권을 함께 지참하는 것이 기본입니다.',
+    drivingCaution:
+      '말레이시아는 좌측통행입니다. 쿠알라룸푸르 시내는 고가도로와 톨게이트(터치앤고) 구간이 많아 사전에 결제 수단을 확인하세요.',
+    airportPickupAvailable: true,
+    insuranceNote:
+      '기본 보험뿐 아니라 톨게이트 자동결제 카드(터치앤고) 대여 여부와 면책금 조건을 함께 확인하세요.',
+    depositNote:
+      '차량 등급과 업체에 따라 신용카드 보증금 홀드가 발생할 수 있습니다.',
+    freeCancellationNote:
+      '무료 취소 상품이라도 현지 업체 규정에 따라 마감 시간이 다를 수 있습니다.',
+    vendorComparisonNote:
+      '쿠알라룸푸르는 KLIA 인수 지점과 톨게이트 결제 방식이 일정에 영향을 줍니다. 가격과 함께 톨 결제 수단 포함 여부를 확인하세요.',
+    relatedCitySlugs: ['taiwan-taipei', 'thailand-phuket', 'australia-sydney'],
+    isPublished: true
+  },
+  {
+    id: 'australia-sydney',
+    countrySlug: 'australia',
+    citySlug: 'sydney',
+    countryNameKo: '호주',
+    cityNameKo: '시드니',
+    heroTitle: '시드니 렌터카 예약 가이드',
+    heroLead:
+      '시드니공항 픽업부터 블루마운틴·헌터밸리 근교 이동까지, 시드니에서 렌터카를 빌릴 때 먼저 확인해야 할 면허·보험·보증금 정보를 정리했습니다.',
+    metaTitle: '시드니 렌터카 예약 가이드 | 블루마운틴·헌터밸리 여행 렌트카 비교',
+    metaDescription:
+      '시드니 렌터카 예약 전 국제운전면허증, 블루마운틴·헌터밸리 이동, 공항 픽업, 보험, 나이 제한 조건을 확인하세요.',
+    intlLicenseRequired: true,
+    intlLicenseNote:
+      '호주는 국제운전면허증과 국내 운전면허증, 여권을 함께 준비하는 것이 안전합니다.',
+    drivingCaution:
+      '호주는 좌측통행입니다. 시드니 시내는 주차비 부담이 크고 장거리 구간은 캥거루 등 야생동물 출몰에 주의해야 합니다.',
+    airportPickupAvailable: true,
+    insuranceNote:
+      '기본 보험, 자차손해면책, 자기부담금 범위가 상품별로 다릅니다. 미성년 운전자·젊은 운전자 추가 요금도 함께 확인하세요.',
+    depositNote:
+      '신용카드 보증금 홀드가 있을 수 있으며, 만 25세 미만은 추가 조건이 붙는 경우가 많습니다.',
+    freeCancellationNote:
+      '플랫폼 예약 상품은 무료 취소 조건이 있는 경우가 많지만, 현지 업체·요금제별로 차이가 있습니다.',
+    vendorComparisonNote:
+      '시드니는 공항 지점, 장거리 주행 거리 제한, 추가 운전자 요금이 총비용에 크게 반영됩니다. 차량 가격과 현장 추가 비용을 따로 계산해보세요.',
+    relatedCitySlugs: ['malaysia-kuala-lumpur', 'usa-hawaii', 'usa-guam'],
     isPublished: true
   }
 ];

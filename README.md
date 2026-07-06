@@ -1,8 +1,8 @@
-# 해외렌트랩 MVP
+# 렌트카팁쿠폰 MVP
 
-해외렌트랩(Global Rent Lab)은 해외여행을 준비하는 한국인이 도시별 렌터카 예약 조건과 공항픽업·페리·크루즈 이동수단을 확인하고, 제휴 링크로 이동할 수 있게 만든 SEO형 여행 교통 정보 사이트입니다.
+렌트카팁쿠폰(Rentcar Tip Coupon)은 해외여행을 준비하는 한국인이 도시별 렌터카 예약 조건, 이동수단, 호텔 검색 준비 정보를 확인하고 제휴 링크로 이동할 수 있게 만든 SEO형 여행 예약 정보 사이트입니다.
 
-이 MVP는 자체 예약·결제 서비스가 아닙니다. 실시간 API 없이 로컬 mock data와 제휴 링크 버튼으로 구성되어 있습니다.
+이 MVP는 자체 예약·결제 서비스가 아닙니다. 렌터카/이동수단은 데이터 파일의 제휴 링크로 연결하고, 호텔은 서버 전용 Agoda API 구조를 준비합니다.
 
 ## 설치 방법
 
@@ -45,8 +45,10 @@ Vercel도 같은 방식으로 Next.js 프로젝트를 빌드합니다.
 - `/rentcar/thailand/bangkok`
 - `/checklist`
 - `/compare`
+- `/hotels`
 - `/faq`
 - `/api/track-click`
+- `/api/hotels/search`
 
 ## 제휴 링크 수정 위치
 
@@ -57,6 +59,12 @@ lib/data/affiliateLinks.ts
 ```
 
 카테고리별 실제 제휴 링크를 `rentcar`, `airport_transfer`, `ferry`, `cruise` 값에 그대로 넣으세요. 제휴 파라미터를 임의로 삭제하거나 바꾸지 않는 것이 중요합니다.
+
+메인 카테고리 카드의 사진, 플랫폼 배지, 버튼 문구는 아래 파일에서 수정합니다.
+
+```txt
+lib/data/categoryCards.ts
+```
 
 ## 도시 데이터 수정 위치
 

@@ -1,15 +1,12 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import {
-  ArrowRight,
-  BadgeCheck,
-  CheckCircle2,
-  ClipboardCheck,
-  ExternalLink,
-  Plane,
-  ShieldCheck
-} from 'lucide-react';
 import { CityCard } from '@/components/rentcar/CityCard';
-import { AFFILIATE_LINKS, transportCategoryLinks } from '@/lib/data/affiliateLinks';
+import {
+  homeInfoCards,
+  mainCategoryCards,
+  platformBadgeClassMap,
+  type MainCategoryCard
+} from '@/lib/data/categoryCards';
 import { getPublishedCities } from '@/lib/data/cities';
 
 export default function HomePage() {
@@ -20,95 +17,48 @@ export default function HomePage() {
     '괌 렌터카',
     '동남아 렌터카',
     '공항픽업',
+    '호텔',
     '보험 체크',
-    '보증금 체크',
-    '무료취소'
-  ];
-  const points = [
-    {
-      title: '국제운전면허증 준비',
-      description: '여권, 국내 운전면허증과 함께 준비해야 현장 확인에서 막히지 않습니다.',
-      icon: BadgeCheck
-    },
-    {
-      title: '보험 포함 여부 확인',
-      description: '자차면책, 자기부담금, 현장 추가 보험 조건을 예약 전 화면에서 확인하세요.',
-      icon: ShieldCheck
-    },
-    {
-      title: '공항 픽업 위치 확인',
-      description: '터미널, 셔틀 탑승 위치, 영업시간이 일정과 맞는지 먼저 비교하세요.',
-      icon: Plane
-    }
+    '쿠폰 준비'
   ];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
       <section className="rounded-[32px] border border-line bg-white p-6 shadow-soft sm:p-12">
         <div className="max-w-3xl">
-          <p className="text-sm font-bold text-accent">Global Rent Lab</p>
-          <h1 className="mt-4 text-[34px] font-extrabold leading-[1.16] tracking-[-0.02em] text-ink sm:text-[56px]">
-            해외 렌터카, 예약 전에 이것만은 확인하세요
+          <p className="text-sm font-bold text-accent">Rentcar Tip Coupon</p>
+          <h1 className="mt-4 text-[34px] font-extrabold leading-[1.16] text-ink sm:text-[56px]">
+            렌트카팁쿠폰
           </h1>
           <p className="mt-5 text-base leading-8 text-subInk sm:text-lg">
-            국제운전면허증, 보험, 보증금, 공항 픽업 조건까지 도시별로 정리했습니다.
+            해외 렌터카부터 호텔까지, 예약 전 팁과 쿠폰을 한눈에 확인하세요.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/rentcar"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-5 py-3 text-sm font-bold text-white transition hover:bg-accent/90"
+              className="inline-flex items-center justify-center rounded-2xl bg-accent px-5 py-3 text-sm font-bold text-white transition hover:bg-accent/90"
             >
               도시별 렌터카 보기
-              <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               href="/checklist"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl border border-line bg-white px-5 py-3 text-sm font-bold text-ink transition hover:border-accent hover:text-accent"
+              className="inline-flex items-center justify-center rounded-2xl border border-line bg-white px-5 py-3 text-sm font-bold text-ink transition hover:border-accent hover:text-accent"
             >
               예약 전 체크리스트
             </Link>
           </div>
         </div>
 
-        <div className="mt-10 grid gap-3 sm:grid-cols-3">
-          {['도시별 예약 조건', '클룩 렌터카 연결', '제휴 클릭 추적'].map((item) => (
-            <div key={item} className="flex items-center gap-2 rounded-2xl bg-mutedSurface px-4 py-3 text-sm font-semibold text-ink">
-              <CheckCircle2 className="h-4 w-4 text-accent" />
-              {item}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mt-14">
-        <div className="flex items-end justify-between gap-4">
-          <div>
-            <p className="text-sm font-bold text-accent">여행 교통 예약</p>
-            <h2 className="mt-2 text-2xl font-extrabold tracking-[-0.02em] text-ink">
-              일정에 맞는 이동수단 먼저 고르기
-            </h2>
-          </div>
-          <Link href="/compare" className="hidden text-sm font-bold text-accent sm:inline-flex">
-            선택 기준 보기
-          </Link>
-        </div>
-        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {transportCategoryLinks.map((item) => (
-            <article key={item.category} className="rounded-2xl border border-line bg-white p-5 shadow-sm">
-              <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-subInk">
-                {item.platform === 'klook' ? 'Klook' : 'Trip.com'}
-              </p>
-              <h3 className="mt-3 text-lg font-extrabold tracking-[-0.02em] text-ink">{item.title}</h3>
-              <p className="mt-2 min-h-24 text-sm leading-6 text-subInk">{item.description}</p>
-              <a
-                href={AFFILIATE_LINKS[item.category]}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-ink px-4 py-3 text-sm font-bold text-white transition hover:bg-accent"
-              >
-                {item.ctaLabel}
-                <ExternalLink className="h-4 w-4" aria-hidden="true" />
-              </a>
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+          {homeInfoCards.map((item) => (
+            <article key={item.title} className="overflow-hidden rounded-2xl border border-line bg-surface">
+              <div className="relative aspect-[5/3]">
+                <Image src={item.imageUrl} alt={item.imageAlt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+              </div>
+              <div className="p-4">
+                <h2 className="text-sm font-extrabold text-ink">{item.title}</h2>
+                <p className="mt-2 text-sm leading-6 text-subInk">{item.description}</p>
+              </div>
             </article>
           ))}
         </div>
@@ -123,21 +73,20 @@ export default function HomePage() {
       </section>
 
       <section className="mt-14">
-        <div>
-          <p className="text-sm font-bold text-accent">오늘 확인할 포인트</p>
-          <h2 className="mt-2 text-2xl font-extrabold tracking-[-0.02em] text-ink">
-            해외 렌터카 예약 전 먼저 볼 3가지
-          </h2>
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <p className="text-sm font-bold text-accent">여행 예약 카테고리</p>
+            <h2 className="mt-2 text-2xl font-extrabold text-ink">
+              여행 예약 카테고리 먼저 고르기
+            </h2>
+          </div>
+          <Link href="/compare" className="hidden text-sm font-bold text-accent sm:inline-flex">
+            이동수단 기준 보기
+          </Link>
         </div>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {points.map(({ title, description, icon: Icon }) => (
-            <article key={title} className="rounded-2xl border border-line bg-white p-5 shadow-sm">
-              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent/10 text-accent">
-                <Icon className="h-5 w-5" aria-hidden="true" />
-              </span>
-              <h3 className="mt-4 font-extrabold tracking-[-0.02em] text-ink">{title}</h3>
-              <p className="mt-2 text-sm leading-6 text-subInk">{description}</p>
-            </article>
+        <div className="mt-6 grid gap-5 md:grid-cols-3">
+          {mainCategoryCards.map((card) => (
+            <CategoryCard key={card.id} card={card} />
           ))}
         </div>
       </section>
@@ -146,7 +95,7 @@ export default function HomePage() {
         <div className="flex items-end justify-between gap-4">
           <div>
             <p className="text-sm font-bold text-accent">인기 도시</p>
-            <h2 className="mt-2 text-2xl font-extrabold tracking-[-0.02em] text-ink">인기 도시 렌터카 가이드</h2>
+            <h2 className="mt-2 text-2xl font-extrabold text-ink">인기 도시 렌터카 가이드</h2>
           </div>
           <Link href="/rentcar" className="hidden text-sm font-bold text-accent sm:inline-flex">
             전체 보기
@@ -163,7 +112,7 @@ export default function HomePage() {
         <div className="grid gap-6 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <div>
             <p className="text-sm font-bold text-accent">예약 판단 기준</p>
-            <h2 className="mt-2 text-2xl font-extrabold tracking-[-0.02em] text-ink">
+            <h2 className="mt-2 text-2xl font-extrabold text-ink">
               렌터카 예약 전 이렇게 확인하세요
             </h2>
             <p className="mt-3 text-sm leading-6 text-subInk">
@@ -172,20 +121,58 @@ export default function HomePage() {
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             {['국제운전면허증', '보험/면책금', '보증금 결제수단', '무료 취소 마감', '공항 픽업 위치'].map((item) => (
-              <div key={item} className="flex items-center gap-2 rounded-2xl bg-mutedSurface px-4 py-3 text-sm font-semibold text-ink">
-                <ClipboardCheck className="h-4 w-4 text-accent" />
+              <div key={item} className="rounded-2xl bg-mutedSurface px-4 py-3 text-sm font-semibold text-ink">
                 {item}
               </div>
             ))}
           </div>
         </div>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-          <Link href="/compare" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-accent">
+          <Link href="/compare" className="inline-flex items-center justify-center rounded-2xl bg-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-accent">
             이동수단 선택 기준 보기
-            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>
     </div>
+  );
+}
+
+function CategoryCard({ card }: { card: MainCategoryCard }) {
+  const isExternal = card.href.startsWith('http');
+
+  const buttonClassName =
+    'mt-5 inline-flex w-full items-center justify-center rounded-xl bg-accent px-4 py-3 text-sm font-bold text-white transition hover:bg-accent/90';
+  const button = isExternal ? (
+    <a href={card.href} target="_blank" rel="noopener noreferrer sponsored" className={buttonClassName}>
+      {card.ctaLabel}
+    </a>
+  ) : (
+    <Link href={card.href} className={buttonClassName}>
+      {card.ctaLabel}
+    </Link>
+  );
+
+  return (
+    <article className="overflow-hidden rounded-[24px] border border-line bg-white shadow-sm">
+      <div className="relative aspect-[16/10]">
+        <Image src={card.imageUrl} alt={card.imageAlt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+      </div>
+      <div className="p-5">
+        <div className="flex flex-wrap gap-2">
+          {card.badges.map((badge) => (
+            <span
+              key={badge.label}
+              className={`rounded-full px-3 py-1 text-xs font-extrabold ${platformBadgeClassMap[badge.key]}`}
+            >
+              {badge.label}
+            </span>
+          ))}
+        </div>
+        <h3 className="mt-4 text-xl font-extrabold text-ink">{card.title}</h3>
+        <p className="mt-2 min-h-20 text-sm leading-6 text-subInk">{card.description}</p>
+
+        {button}
+      </div>
+    </article>
   );
 }

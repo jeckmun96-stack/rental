@@ -2,19 +2,18 @@
 
 import { Car, CheckCircle2, ExternalLink, Plane, ShieldCheck, Undo2, XCircle } from 'lucide-react';
 import { useState } from 'react';
-import { formatKrw } from '@/lib/format';
 import type { RentcarOffer } from '@/types/rentcar';
 
 const platformMap = {
   tripcom: {
     label: '트립닷컴',
-    buttonLabel: '예약 조건 확인하기',
+    buttonLabel: '예약하러 가기',
     className: 'bg-tripcom hover:bg-tripcom/90',
     mark: 'T'
   },
   klook: {
     label: '클룩',
-    buttonLabel: '예약 조건 확인하기',
+    buttonLabel: '예약하러 가기',
     className: 'bg-klook hover:bg-klook/90',
     mark: 'K'
   }
@@ -25,15 +24,13 @@ interface RentcarOfferCardProps {
   countrySlug: string;
   citySlug: string;
   compact?: boolean;
-  showLowestBadge?: boolean;
 }
 
 export function RentcarOfferCard({
   offer,
   countrySlug,
   citySlug,
-  compact = false,
-  showLowestBadge = false
+  compact = false
 }: RentcarOfferCardProps) {
   const [isLoading, setIsLoading] = useState(false);
   const platform = platformMap[offer.platform];
@@ -135,18 +132,11 @@ export function RentcarOfferCard({
         </div>
 
         <div className="w-full rounded-2xl bg-mutedSurface p-4 lg:w-64">
-          <div className="flex items-center justify-between gap-2">
-            <p className="text-xs font-bold uppercase tracking-[0.12em] text-subInk">예상 가격</p>
-            {showLowestBadge && (
-              <span className="rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-extrabold text-emerald-700">
-                최저가
-              </span>
-            )}
-          </div>
-          <p className="mt-2 text-2xl font-extrabold tracking-[-0.02em] text-ink tabular-nums">
-            {formatKrw(offer.priceKrw)}
+          <p className="text-xs font-bold uppercase tracking-[0.12em] text-subInk">실시간 가격 확인</p>
+          <p className="mt-2 text-sm leading-6 text-ink">
+            날짜·차량 재고에 따라 가격이 달라집니다. {platform.label} 예약 화면에서 실시간 최종 가격을 확인하세요.
           </p>
-          <p className="mt-1 text-xs text-subInk">보험·취소·보증금은 최종 화면에서 확인</p>
+          <p className="mt-1 text-xs text-subInk">보험·취소·보증금도 최종 화면에서 함께 확인</p>
           <button
             type="button"
             onClick={handleBookClick}

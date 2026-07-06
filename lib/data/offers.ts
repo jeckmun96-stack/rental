@@ -99,6 +99,62 @@ const rawRentcarOffers: Omit<RentcarOffer, 'affiliateUrl'>[] = [
     freeCancellation: true,
     airportPickup: true,
     sortOrder: 2
+  },
+  {
+    id: 'offer-taipei-klook-compact',
+    cityId: 'taiwan-taipei',
+    category: 'rentcar',
+    platform: 'klook',
+    vehicleName: '토요타 야리스 또는 동급',
+    vehicleClass: '소형',
+    priceKrw: 78500,
+    priceUnit: 'total',
+    insuranceIncluded: true,
+    freeCancellation: true,
+    airportPickup: true,
+    sortOrder: 2
+  },
+  {
+    id: 'offer-phuket-klook-suv',
+    cityId: 'thailand-phuket',
+    category: 'rentcar',
+    platform: 'klook',
+    vehicleName: '혼다 HR-V 또는 동급',
+    vehicleClass: 'SUV',
+    priceKrw: 95400,
+    priceUnit: 'total',
+    insuranceIncluded: true,
+    freeCancellation: true,
+    airportPickup: true,
+    sortOrder: 2
+  },
+  {
+    id: 'offer-kualalumpur-klook-sedan',
+    cityId: 'malaysia-kuala-lumpur',
+    category: 'rentcar',
+    platform: 'klook',
+    vehicleName: '프로톤 사가 또는 동급',
+    vehicleClass: '세단',
+    priceKrw: 68900,
+    priceUnit: 'total',
+    insuranceIncluded: true,
+    freeCancellation: false,
+    airportPickup: true,
+    sortOrder: 2
+  },
+  {
+    id: 'offer-sydney-klook-suv',
+    cityId: 'australia-sydney',
+    category: 'rentcar',
+    platform: 'klook',
+    vehicleName: '토요타 RAV4 또는 동급',
+    vehicleClass: 'SUV',
+    priceKrw: 142000,
+    priceUnit: 'total',
+    insuranceIncluded: true,
+    freeCancellation: true,
+    airportPickup: true,
+    sortOrder: 2
   }
 ];
 

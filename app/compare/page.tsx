@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-import { ExternalLink } from 'lucide-react';
-import { AFFILIATE_LINKS, transportCategoryLinks } from '@/lib/data/affiliateLinks';
+import { mainCategoryCards, platformBadgeClassMap } from '@/lib/data/categoryCards';
 
 export const metadata: Metadata = {
   title: '해외 여행 이동수단 예약 가이드 | 렌터카·공항픽업·페리·크루즈',
@@ -32,6 +31,8 @@ const rows = [
 ] as const;
 
 export default function ComparePage() {
+  const transportCard = mainCategoryCards.find((card) => card.id === 'transport');
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
       <section className="rounded-[28px] border border-line bg-white p-6 shadow-soft sm:p-10">
@@ -59,25 +60,31 @@ export default function ComparePage() {
         ))}
       </section>
 
-      <section className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {transportCategoryLinks.map((item) => (
-          <article key={item.category} className="rounded-2xl border border-line bg-white p-5 shadow-sm">
-            <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-subInk">
-              {item.platform === 'klook' ? 'Klook' : 'Trip.com'}
-            </p>
-            <h2 className="mt-3 text-lg font-extrabold tracking-[-0.02em] text-ink">{item.title}</h2>
-            <p className="mt-2 min-h-24 text-sm leading-6 text-subInk">{item.description}</p>
+      <section className="mt-10 rounded-[28px] border border-line bg-white p-6 shadow-sm sm:p-8">
+        <p className="text-sm font-bold text-accent">이동수단 하위 항목</p>
+        <h2 className="mt-2 text-2xl font-extrabold text-ink">공항픽업·페리·크루즈를 한 번에 보기</h2>
+        <p className="mt-3 max-w-3xl text-sm leading-6 text-subInk">
+          페리와 크루즈는 독립 메인 카테고리가 아니라 이동수단 안에서 일정에 맞게 선택하는 항목으로 정리했습니다.
+        </p>
+        <div className="mt-6 grid gap-3 md:grid-cols-3">
+          {transportCard?.subItems?.map((item) => (
             <a
-              href={AFFILIATE_LINKS[item.category]}
+              key={item.label}
+              href={item.href}
               target="_blank"
               rel="noopener noreferrer sponsored"
-              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-ink px-4 py-3 text-sm font-bold text-white transition hover:bg-accent"
+              className="rounded-2xl border border-line bg-surface p-4 transition hover:border-accent"
             >
-              {item.ctaLabel}
-              <ExternalLink className="h-4 w-4" aria-hidden="true" />
+              <span className={`rounded-full px-3 py-1 text-xs font-extrabold ${platformBadgeClassMap[item.platform]}`}>
+                {item.platform === 'tripcom' ? 'TRIP.COM' : 'KLOOK'}
+              </span>
+              <span className="mt-3 block font-extrabold text-ink">{item.label}</span>
+              <span className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-accent px-4 py-3 text-sm font-bold text-white transition hover:bg-accent/90">
+                {item.ctaLabel}
+              </span>
             </a>
-          </article>
-        ))}
+          ))}
+        </div>
       </section>
 
       <section className="mt-10 rounded-[28px] border border-line bg-mutedSurface p-6 sm:p-8">

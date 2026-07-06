@@ -10,6 +10,7 @@ export interface RentcarOffer {
   vehicleName: string;
   vehicleClass: string;
   priceKrw: number;
+  originalPriceKrw?: number;
   priceUnit: RentcarPriceUnit;
   insuranceIncluded: boolean;
   freeCancellation: boolean;

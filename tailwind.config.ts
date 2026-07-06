@@ -9,15 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        surface: '#FAFAF9',
-        mutedSurface: '#F1F3F0',
-        ink: '#1A2333',
-        subInk: '#5B6474',
-        accent: '#0E7C7B',
+        surface: '#FFFBF5',
+        mutedSurface: '#FFF6EA',
+        ink: '#2B2A28',
+        subInk: '#8A8580',
+        accent: '#FF8A5B',
+        trust: '#3AA787',
         warning: '#B5533C',
-        line: '#E4E7E2',
-        tripcom: '#2B4C8C',
-        klook: '#F26B21'
+        line: '#F0E9DE',
+        tripcom: '#2557D6',
+        klook: '#FF5722',
+        agoda: '#2557D6'
       },
       fontFamily: {
         sans: [
