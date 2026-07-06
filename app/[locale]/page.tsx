@@ -4,6 +4,7 @@ import { CategoryCard } from '@/components/CategoryCard';
 import { SlothMascot } from '@/components/SlothMascot';
 import { getDictionary } from '@/lib/i18n/dictionaries';
 import { isLocale, type Locale } from '@/lib/i18n/locales';
+import { localizeAffiliateUrl } from '@/lib/i18n/localizeAffiliateUrl';
 import { mainCategoryCards } from '@/lib/data/categoryCards';
 
 interface LocalePageProps {
@@ -41,7 +42,7 @@ export default function LocaleHomePage({ params }: LocalePageProps) {
             <p className="mt-5 text-base leading-8 text-subInk sm:text-lg">{dict.heroLead}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href={dict.ctaPrimaryHref}
+                href={localizeAffiliateUrl(dict.ctaPrimaryHref, locale)}
                 target="_blank"
                 rel="noopener noreferrer sponsored"
                 className="inline-flex items-center justify-center rounded-2xl bg-accent px-5 py-3 text-sm font-bold text-white transition hover:bg-accent/90"
@@ -69,7 +70,7 @@ export default function LocaleHomePage({ params }: LocalePageProps) {
                 key={card.id}
                 id={card.id}
                 badges={card.badges}
-                href={card.href}
+                href={localizeAffiliateUrl(card.href, locale)}
                 title={copy.title}
                 description={copy.description}
                 ctaLabel={copy.ctaLabel}
