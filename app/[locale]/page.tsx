@@ -125,6 +125,14 @@ export default function LocaleHomePage({ params }: LocalePageProps) {
             ))}
           </div>
         </div>
+        {locale === 'en' && (
+          <a
+            href="/en/checklist"
+            className="mt-6 inline-flex items-center justify-center rounded-2xl bg-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-accent"
+          >
+            View full checklist
+          </a>
+        )}
       </section>
     </div>
   );

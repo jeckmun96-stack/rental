@@ -46,6 +46,9 @@ export function Header({ locale = 'ko' }: HeaderProps) {
         )}
         {locale === 'en' && (
           <nav className="hidden items-center gap-5 text-sm font-medium text-subInk md:flex">
+            <Link href="/en/checklist" className="hover:text-accent">
+              Checklist
+            </Link>
             <Link href="/en/compare" className="hover:text-accent">
               Getting Around
             </Link>
