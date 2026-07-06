@@ -24,6 +24,9 @@ export function Header() {
           <Link href="/hotels" className="hover:text-accent">
             호텔
           </Link>
+          <Link href="/flights" className="hover:text-accent">
+            항공권
+          </Link>
           <Link href="/faq" className="hover:text-accent">
             FAQ
           </Link>

@@ -15,7 +15,7 @@ export interface CategorySubItem {
 }
 
 export interface MainCategoryCard {
-  id: 'rentcar' | 'transport' | 'hotel' | 'esim' | 'activity' | 'attraction';
+  id: 'rentcar' | 'transport' | 'hotel' | 'esim' | 'activity' | 'attraction' | 'flight';
   title: string;
   description: string;
   imageUrl: string;
@@ -103,6 +103,16 @@ export const mainCategoryCards: MainCategoryCard[] = [
         ctaLabel: '크루즈 둘러보기'
       }
     ]
+  },
+  {
+    id: 'flight',
+    title: '항공권',
+    description: '트립닷컴에서 출발지·도착지, 날짜만 입력해 항공권 가격을 바로 비교하세요.',
+    imageUrl: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: '공항에서 항공권을 확인하는 여행자',
+    href: '/flights',
+    ctaLabel: '항공권 검색하기',
+    badges: [{ key: 'tripcom', label: 'TRIP.COM' }]
   },
   {
     id: 'hotel',
