@@ -65,12 +65,18 @@ export default function LocaleHomePage({ params }: LocalePageProps) {
         <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3">
           {mainCategoryCards.map((card) => {
             const copy = dict.categories[card.id];
+            let href = localizeAffiliateUrl(card.href, locale);
+            if (locale === 'en' && card.id === 'transport') {
+              href = '/en/compare';
+            } else if (locale === 'en' && card.id === 'flight') {
+              href = '/en/flights';
+            }
             return (
               <CategoryCard
                 key={card.id}
                 id={card.id}
                 badges={card.badges}
-                href={localizeAffiliateUrl(card.href, locale)}
+                href={href}
                 title={copy.title}
                 description={copy.description}
                 ctaLabel={copy.ctaLabel}

@@ -44,6 +44,16 @@ export function Header({ locale = 'ko' }: HeaderProps) {
             </Link>
           </nav>
         )}
+        {locale === 'en' && (
+          <nav className="hidden items-center gap-5 text-sm font-medium text-subInk md:flex">
+            <Link href="/en/compare" className="hover:text-accent">
+              Getting Around
+            </Link>
+            <Link href="/en/flights" className="hover:text-accent">
+              Flights
+            </Link>
+          </nav>
+        )}
         <div className="flex items-center gap-2">
           <LanguageSwitcher current={locale} label={dict.languageLabel} />
           {isKo && (
