@@ -1,123 +1,102 @@
-# 렌트카팁쿠폰 MVP
+# 여행늘보 MVP
 
-렌트카팁쿠폰(Rentcar Tip Coupon)은 해외여행을 준비하는 한국인이 도시별 렌터카 예약 조건, 이동수단, 호텔 검색 준비 정보를 확인하고 제휴 링크로 이동할 수 있게 만든 SEO형 여행 예약 정보 사이트입니다.
+여행늘보(Travel Sloth)는 해외여행 예약 전에 꼭 확인해야 할 렌터카, 이동수단, 항공권, 이심/유심, 투어, 입장권 정보를 정리하는 제휴 마케팅 기반 여행 예약 가이드입니다.
 
-이 MVP는 자체 예약·결제 서비스가 아닙니다. 렌터카/이동수단은 데이터 파일의 제휴 링크로 연결하고, 호텔은 서버 전용 Agoda API 구조를 준비합니다.
+자체 예약·결제 서비스가 아니라, 각 카테고리의 정보와 체크포인트를 제공하고 Klook, Trip.com 등 제휴 링크로 연결합니다.
 
-## 설치 방법
-
-```bash
-npm install
-```
-
-환경변수 예시는 아래처럼 복사해둘 수 있습니다. 1차 MVP는 환경변수가 없어도 동작합니다.
+## 실행
 
 ```bash
-cp .env.example .env.local
+pnpm install
+pnpm dev
 ```
 
-## 로컬 실행 방법
+로컬 주소는 `http://localhost:3000`입니다.
+
+## 빌드
 
 ```bash
-npm run dev
+pnpm build
 ```
 
-브라우저에서 `http://localhost:3000`을 열면 됩니다.
-
-## 빌드 방법
+Cloudflare Workers 배포용 빌드는 OpenNext를 사용합니다.
 
 ```bash
-npm run build
+pnpm run deploy:cloudflare
 ```
 
-Vercel도 같은 방식으로 Next.js 프로젝트를 빌드합니다.
+## 배포
+
+현재 Cloudflare Workers로 배포합니다.
+
+- Worker: `rentcar-tip-coupon`
+- Production URL: `https://rentcar.tipcoupon.com`
+- Workers.dev URL: `https://rentcar-tip-coupon.jeckmun96.workers.dev`
+- Route: `rentcar.tipcoupon.com/*`
+
+Cloudflare 설정 파일은 `wrangler.jsonc`, OpenNext 설정은 `open-next.config.ts`에서 관리합니다.
 
 ## 주요 페이지
 
 - `/`
 - `/rentcar`
-- `/rentcar/japan/osaka`
-- `/rentcar/japan/fukuoka`
-- `/rentcar/japan/tokyo`
-- `/rentcar/usa/hawaii`
-- `/rentcar/usa/guam`
-- `/rentcar/vietnam/danang`
-- `/rentcar/thailand/bangkok`
+- `/rentcar/[country]/[city]`
 - `/checklist`
 - `/compare`
-- `/hotels`
+- `/flights`
 - `/faq`
+- `/en`
+- `/ja`
+- `/zh`
+- `/nl`
+- `/de`
 - `/api/track-click`
-- `/api/hotels/search`
 
-## 제휴 링크 수정 위치
+## 데이터 수정 위치
 
-제휴 링크는 아래 파일에서 수정합니다.
+제휴 링크:
 
 ```txt
 lib/data/affiliateLinks.ts
 ```
 
-카테고리별 실제 제휴 링크를 `rentcar`, `airport_transfer`, `ferry`, `cruise` 값에 그대로 넣으세요. 제휴 파라미터를 임의로 삭제하거나 바꾸지 않는 것이 중요합니다.
-
-메인 카테고리 카드의 사진, 플랫폼 배지, 버튼 문구는 아래 파일에서 수정합니다.
+메인 카테고리 카드:
 
 ```txt
 lib/data/categoryCards.ts
 ```
 
-## 도시 데이터 수정 위치
-
-도시별 SEO 문구, 면허 안내, 보험 안내, 보증금 안내는 아래 파일에서 관리합니다.
+도시별 렌터카 가이드:
 
 ```txt
 lib/data/cities.ts
 ```
 
-렌터카 카드의 차량명, 예상 가격, 보험 포함 여부, 무료 취소 여부는 아래 파일에서 관리합니다.
+렌터카 상품 카드:
 
 ```txt
 lib/data/offers.ts
 ```
 
-## Vercel 배포 방법
-
-1. GitHub에 새 저장소를 만들고 이 프로젝트 코드를 push합니다.
-2. Vercel에서 `Add New Project`를 누릅니다.
-3. GitHub 저장소를 선택합니다.
-4. Framework Preset은 `Next.js`로 둡니다.
-5. Build Command는 `npm run build`를 사용합니다.
-6. 배포 후 제공되는 Vercel URL로 페이지를 확인합니다.
-
-## Cloudflare 서브도메인 연결 방법
-
-도메인이 `tipcoupon.com`이고 서브도메인을 `rentcar.tipcoupon.com`으로 쓰는 구성을 추천합니다. 본 도메인은 기존 사이트나 다른 프로젝트에 남겨두고, 렌터카 MVP만 독립적으로 운영하기 좋습니다.
-
-Vercel:
+다국어 문구:
 
 ```txt
-Project Settings -> Domains -> rentcar.tipcoupon.com 추가
+lib/i18n/dictionaries.ts
 ```
 
-Cloudflare DNS:
+## 환경변수
 
-```txt
-Type: CNAME
-Name: rentcar
-Target: cname.vercel-dns.com
-Proxy status: DNS only
-TTL: Auto
-```
-
-배포 도메인을 연결한 뒤 Vercel 환경변수에 아래 값을 넣으면 sitemap과 robots가 실제 도메인을 사용합니다.
+검색엔진용 sitemap과 robots의 기준 도메인은 `SITE_URL`로 제어합니다.
 
 ```env
 SITE_URL=https://rentcar.tipcoupon.com
 ```
 
+Cloudflare 운영 환경에서는 필요한 값들을 Wrangler secret 또는 Cloudflare dashboard variables/secrets로 관리합니다. `.env.local`은 로컬 전용이며 Git에 올리지 않습니다.
+
 ## 클릭 추적 API
 
-예약 버튼은 먼저 `/api/track-click`에 POST 요청을 보낸 뒤 새 탭으로 제휴 링크를 엽니다. API 요청이 실패해도 사용자의 이동은 막지 않습니다.
+예약 버튼은 `/api/track-click`으로 클릭 정보를 보낸 뒤 제휴 링크를 엽니다. 추적 저장소가 없어도 사용자 이동은 막지 않습니다.
 
 요청 예시:
 
@@ -130,19 +109,17 @@ SITE_URL=https://rentcar.tipcoupon.com
 }
 ```
 
-현재 Supabase 환경변수가 없으면 서버 콘솔에 클릭 로그를 남깁니다. 나중에 Supabase를 연결하면 `supabase/schema.sql`을 참고해 저장 구조를 확장할 수 있습니다.
+## 운영 메모
+
+- `.wrangler`, `.open-next`, `.next`, `tsconfig.tsbuildinfo`는 로컬/빌드 산출물이므로 Git에 올리지 않습니다.
+- Cloudflare DNS의 `rentcar.tipcoupon.com` 레코드는 프록시 상태여야 Worker route가 적용됩니다.
+- Next.js 이미지는 Cloudflare Images binding 없이 동작하도록 `images.unoptimized`를 사용합니다.
+- Next.js 14 배포는 OpenNext Cloudflare의 unsupported-version 플래그를 사용합니다. 추후 Next.js 메이저 업그레이드 시 스크립트를 같이 정리하는 것이 좋습니다.
 
 ## 아직 구현하지 않은 것
 
-- 실시간 제휴/가격 API 연동
-- 로그인/회원가입
-- 자체 결제
+- 실시간 렌터카 가격 API 연동
 - 관리자 페이지
+- 회원가입/로그인
+- 자체 결제
 - Supabase 필수 저장
-
-## 다음 단계에서 API 연동하는 방법
-
-1. `lib/rentcar-providers/types.ts`의 provider 타입을 기준으로 mock/live provider를 나눕니다.
-2. `RENTCAR_DATA_SOURCE=mock|live` 같은 환경변수로 데이터 소스를 전환합니다.
-3. 제휴사 승인 후 공식 문서 기준으로 서버 전용 API route를 만듭니다.
-4. 기존 `lib/data/affiliateLinks.ts`의 딥링크 구조는 보존하고, API 결과에는 제휴 파라미터가 유지되도록 매핑합니다.
